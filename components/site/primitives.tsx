@@ -22,6 +22,26 @@ export function Container({
 }
 
 /* ------------------------------------------------------------------ */
+/* Section (vertical rhythm wrapper)                                  */
+/* ------------------------------------------------------------------ */
+
+export function Section({
+  className,
+  children,
+  id,
+}: {
+  className?: string
+  children: React.ReactNode
+  id?: string
+}) {
+  return (
+    <section id={id} className={cn('py-16 sm:py-20 lg:py-24', className)}>
+      {children}
+    </section>
+  )
+}
+
+/* ------------------------------------------------------------------ */
 /* Eyebrow                                                            */
 /* ------------------------------------------------------------------ */
 
