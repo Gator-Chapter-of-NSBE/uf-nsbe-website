@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { Linkedin } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { LinkedinIcon } from '@/components/site/brand-icons'
 
 export type PersonCardProps = {
   name: string
@@ -68,7 +68,7 @@ export function PersonCard({
         {linkedin ? (
           <div className="mt-auto pt-4">
             <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-              <Linkedin className="size-4" />
+              <LinkedinIcon className="size-4" />
               {linkedin.startsWith('[') ? 'LinkedIn' : linkedin}
             </span>
           </div>

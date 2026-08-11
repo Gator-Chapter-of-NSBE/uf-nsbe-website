@@ -37,6 +37,8 @@
   --color-tb-purple: var(--tb-purple);
   --color-tb-grey: var(--tb-grey);
   --color-tb-ink: var(--tb-ink);
+  --color-tb-lilac: var(--tb-lilac);
+  --color-tb-tint: var(--tb-tint);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
@@ -84,6 +86,8 @@
   --tb-purple: #8634ca;
   --tb-grey: #7f7f7f;
   --tb-ink: #0d0d12;
+  --tb-lilac: #c9a3ec;
+  --tb-tint: #f6f1fb;
 
   --radius: 0.4rem;
 }

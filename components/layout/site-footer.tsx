@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Instagram, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Container } from '@/components/site/primitives'
+import { InstagramIcon } from '@/components/site/brand-icons'
 import { site } from '@/data/site'
 
 const footerColumns = [
@@ -103,7 +104,7 @@ export function SiteFooter() {
             rel="noopener noreferrer"
             className="mt-5 inline-flex items-center gap-2 rounded-md border border-white/20 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10"
           >
-            <Instagram className="size-4" />
+            <InstagramIcon className="size-4" />
             {site.social.instagram.handle}
           </a>
         </div>
