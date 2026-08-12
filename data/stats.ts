@@ -11,8 +11,8 @@ export type Stat = {
 }
 
 export const stats: Stat[] = [
-  { value: '[NUMBER]', label: 'Active Members' },
-  { value: '[NUMBER]', label: 'Annual Events' },
+  { value: '120', label: 'Active Members' },
+  { value: '47', label: 'Annual Events' },
   { value: '33', label: 'Trailblazers' },
-  { value: '[NUMBER]', label: 'Years at UF' },
+  { value: '14', label: 'Years at UF' },
 ]
