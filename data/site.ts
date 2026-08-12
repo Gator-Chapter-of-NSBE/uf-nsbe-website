@@ -18,7 +18,7 @@ export const site = {
       url: 'https://www.instagram.com/ufnsbe/',
     },
     // Add more channels here as they become available.
-    linkedin: '[LINKEDIN URL NEEDED]',
+    linkedin: 'https://www.linkedin.com/in/nsbe-uf-gator-chapter-203046419/',
     national: 'https://www.nsbe.org/',
   },
 } as const
