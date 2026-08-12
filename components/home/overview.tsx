@@ -47,9 +47,6 @@ export function Stats() {
             </div>
           ))}
         </dl>
-        <p className="mt-8 text-xs text-white/40">
-          Figures shown as placeholders until confirmed by the chapter.
-        </p>
       </Container>
     </section>
   )
