@@ -47,6 +47,9 @@ export function Stats() {
             </div>
           ))}
         </dl>
+        <p className="mt-8 text-xs text-white/40">
+          As of the 2025-2026 academic year.
+        </p>
       </Container>
     </section>
   )
