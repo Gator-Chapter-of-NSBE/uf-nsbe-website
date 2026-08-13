@@ -14,5 +14,5 @@ export const stats: Stat[] = [
   { value: '120', label: 'Active Members' },
   { value: '47', label: 'Annual Events' },
   { value: '33', label: 'Trailblazers' },
-  { value: '14', label: 'Years at UF' },
+  { value: '50', label: 'Years at UF' },
 ]
