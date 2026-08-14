@@ -134,7 +134,7 @@ export default function TrailblazersPage() {
               Ready to become a Trailblazer?
             </h2>
             <p className="mx-auto mt-5 max-w-xl leading-relaxed text-white/70">
-              Applications open to incoming and first-year students. Take the first step toward a
+              Applications open to first-year students. Take the first step toward a
               community that will have your back for the next four years and beyond.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
