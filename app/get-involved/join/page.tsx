@@ -70,7 +70,7 @@ export default function JoinPage() {
                 <div>
                   <h3 className="text-lg font-medium text-foreground">Join our Discord</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    Introduce yourself in #welcome and stay in the loop on everything UF NSBE.
+                    Introduce yourself in #introductions and stay in the loop on everything UF NSBE.
                   </p>
                 </div>
               </div>
