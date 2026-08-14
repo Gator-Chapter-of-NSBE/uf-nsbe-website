@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Sparkles, Users, Calendar, Award, ArrowUpRight } from 'lucide-react'
-import { PageHero, PlaceholderNote } from '@/components/site/page-hero'
-import { Container, Section, SectionHeading } from '@/components/site/primitives'
-import { ApplicationForm, type FormField } from '@/components/forms/application-form'
+import { PageHero } from '@/components/site/page-hero'
+import { Container, Section, SectionHeading, CtaLink } from '@/components/site/primitives'
+import { DiscordIcon } from '@/components/site/brand-icons'
 
 export const metadata: Metadata = {
   title: 'Join NSBE',
@@ -10,32 +10,13 @@ export const metadata: Metadata = {
     'Become a member of the University of Florida Gator Chapter of the National Society of Black Engineers.',
 }
 
+const DISCORD_URL = 'https://discord.gg/Cf3GujpTRh'
+
 const benefits = [
   { icon: Users, title: 'Community', copy: 'A network of peers, mentors, and friends who have your back.' },
   { icon: Calendar, title: 'Events', copy: 'General body meetings, socials, workshops, and service projects.' },
   { icon: Award, title: 'Development', copy: 'Résumé help, interview prep, and access to recruiters.' },
   { icon: Sparkles, title: 'Opportunity', copy: 'National conventions, scholarships, and career connections.' },
-]
-
-const joinFields: FormField[] = [
-  { name: 'firstName', label: 'First name', type: 'text', required: true, placeholder: 'Jane' },
-  { name: 'lastName', label: 'Last name', type: 'text', required: true, placeholder: 'Gator' },
-  { name: 'email', label: 'UF email', type: 'email', required: true, placeholder: 'jane@ufl.edu' },
-  { name: 'phone', label: 'Phone (optional)', type: 'tel', placeholder: '(000) 000-0000' },
-  {
-    name: 'classStanding',
-    label: 'Class standing',
-    type: 'select',
-    required: true,
-    options: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Graduate', 'Other'],
-  },
-  { name: 'major', label: 'Major', type: 'text', required: true, placeholder: 'e.g. Mechanical Engineering' },
-  {
-    name: 'interests',
-    label: 'What are you hoping to get out of NSBE?',
-    type: 'textarea',
-    placeholder: 'Tell us what you are looking for — community, career prep, mentorship, or something else.',
-  },
 ]
 
 export default function JoinPage() {
@@ -76,18 +57,28 @@ export default function JoinPage() {
       <Section className="border-t border-border bg-muted/40">
         <Container className="max-w-3xl">
           <SectionHeading
-            eyebrow="Membership"
-            title="Become a member"
-            description="Fill out the form below to join our chapter roster and start receiving updates about meetings and events."
+            eyebrow="Get connected"
+            title="The best way to get involved"
+            description="We don't run a formal application — the fastest way to plug in is to join our Discord. That's where we share meeting times, event announcements, opportunities, and where you can meet the community and ask us anything."
           />
-          <div className="mt-8">
-            <PlaceholderNote>
-              This form validates and confirms on-screen but is not yet connected to a backend. Wire it to your
-              membership roster (a Google Sheet, database, or CRM) to start collecting real sign-ups.
-            </PlaceholderNote>
-          </div>
-          <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <ApplicationForm fields={joinFields} submitLabel="Join UF NSBE" accent="nsbe" />
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
+            <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+              <div className="flex items-center gap-5">
+                <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-nsbe-green/10 text-nsbe-green">
+                  <DiscordIcon className="size-7" />
+                </span>
+                <div>
+                  <h3 className="text-lg font-medium text-foreground">Join our Discord</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Introduce yourself in #welcome and stay in the loop on everything UF NSBE.
+                  </p>
+                </div>
+              </div>
+              <CtaLink href={DISCORD_URL} variant="accent" size="lg" external className="w-full shrink-0 sm:w-auto">
+                <DiscordIcon className="size-5" />
+                Join the Discord
+              </CtaLink>
+            </div>
           </div>
         </Container>
       </Section>
