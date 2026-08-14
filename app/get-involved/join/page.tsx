@@ -73,15 +73,6 @@ export default function JoinPage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-border bg-muted/40">
-        <Container className="max-w-3xl">
-          <SectionHeading
-            eyebrow="Get connected"
-            title="The best way to get involved"
-            description="We don't run a formal application — the fastest way to plug in is to join our Discord. That's where we share meeting times, event announcements, opportunities, and where you can meet the community and ask us anything."
-          />
-        </Container>
-      </Section>
     </>
   )
 }
