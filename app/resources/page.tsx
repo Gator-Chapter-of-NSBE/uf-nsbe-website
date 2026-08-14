@@ -14,19 +14,19 @@ const nsbeResources = [
     icon: GraduationCap,
     title: 'NSBE Scholarships',
     description: 'National scholarships and awards available to NSBE members across all academic levels.',
-    href: 'https://www.nsbe.org',
+    href: 'https://nsbe.org/scholarships/',
   },
   {
     icon: Briefcase,
     title: 'NSBE Career Center',
     description: 'The national job board connecting members with internships and full-time engineering roles.',
-    href: 'https://www.nsbe.org',
+    href: 'https://careers.nsbe.org/',
   },
   {
     icon: Users,
     title: 'NSBE Membership Portal',
     description: 'Manage your national membership, register for convention, and access member benefits.',
-    href: 'https://www.nsbe.org',
+    href: 'https://mynsbe.nsbe.org/s/login/',
   },
   {
     icon: BookOpen,
