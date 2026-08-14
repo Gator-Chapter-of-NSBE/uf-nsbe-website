@@ -42,7 +42,7 @@ const usefulLinks = [
   { title: 'UF Multicultural & Diversity Affairs', href: 'https://multicultural.ufl.edu' },
   { title: 'UF Office for Academic Support', href: 'https://oas.aa.ufl.edu' },
   { title: 'NSBE National Website', href: 'https://www.nsbe.org' },
-  { title: 'NSBE Region 3', href: 'https://www.nsbe.org' },
+  { title: 'NSBE Region 3', href: 'https://nsbe.org/collegiate-region/collegiate-region-3/' },
 ]
 
 export default function ResourcesPage() {
