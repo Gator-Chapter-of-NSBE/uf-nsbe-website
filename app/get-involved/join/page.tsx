@@ -27,6 +27,25 @@ export default function JoinPage() {
         title="Join UF NSBE"
         description="Membership is open to all students who support our mission. Come as you are — you belong here."
       >
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
+            <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+              <div className="flex items-center gap-5">
+                <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-nsbe-green/10 text-nsbe-green">
+                  <DiscordIcon className="size-7" />
+                </span>
+                <div>
+                  <h3 className="text-lg font-medium text-foreground">Join our Discord</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Introduce yourself in #introductions and stay in the loop on everything UF NSBE.
+                  </p>
+                </div>
+              </div>
+              <CtaLink href={DISCORD_URL} variant="accent" size="lg" external className="w-full shrink-0 sm:w-auto">
+                <DiscordIcon className="size-5" />
+                Join the Discord
+              </CtaLink>
+            </div>
+          </div>
         <a
           href="https://www.nsbe.org"
           target="_blank"
@@ -61,25 +80,6 @@ export default function JoinPage() {
             title="The best way to get involved"
             description="We don't run a formal application — the fastest way to plug in is to join our Discord. That's where we share meeting times, event announcements, opportunities, and where you can meet the community and ask us anything."
           />
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card">
-            <div className="flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
-              <div className="flex items-center gap-5">
-                <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-nsbe-green/10 text-nsbe-green">
-                  <DiscordIcon className="size-7" />
-                </span>
-                <div>
-                  <h3 className="text-lg font-medium text-foreground">Join our Discord</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    Introduce yourself in #introductions and stay in the loop on everything UF NSBE.
-                  </p>
-                </div>
-              </div>
-              <CtaLink href={DISCORD_URL} variant="accent" size="lg" external className="w-full shrink-0 sm:w-auto">
-                <DiscordIcon className="size-5" />
-                Join the Discord
-              </CtaLink>
-            </div>
-          </div>
         </Container>
       </Section>
     </>
