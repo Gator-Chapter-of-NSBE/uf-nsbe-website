@@ -43,8 +43,9 @@ export default function ContactPage() {
       <Section>
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-            <SectionHeading eyebrow="Chapter contacts" title="Reach the right person" />
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div>
+              <SectionHeading eyebrow="Chapter contacts" title="Reach the right person" />
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {site.contacts.map((contact) => (
                 <div key={contact.email} className="rounded-xl border border-border bg-card p-4">
                   <p className="font-medium text-foreground">{contact.name}</p>
@@ -57,10 +58,10 @@ export default function ContactPage() {
                   </a>
                 </div>
               ))}
-            </div>
+              </div>
 
-            <div className="mt-8 border-t border-border pt-8">
-              <p className="text-sm font-medium text-foreground">Follow along</p>
+              <div className="mt-8 border-t border-border pt-8">
+                <p className="text-sm font-medium text-foreground">Follow along</p>
               <div className="mt-4 flex gap-3">
                 <a
                   href={site.social.instagram.url}
@@ -91,20 +92,48 @@ export default function ContactPage() {
                   Discord
                   <ArrowUpRight className="size-3.5 text-muted-foreground" />
                 </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <PlaceholderNote>
+                This contact form validates and confirms on-screen but is not yet connected to a backend. Wire it to an
+                email service or inbox to start receiving messages.
+              </PlaceholderNote>
+              <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
+                <ApplicationForm fields={contactFields} submitLabel="Send message" accent="nsbe" />
               </div>
             </div>
           </div>
 
-          <div>
-            <PlaceholderNote>
-              This contact form validates and confirms on-screen but is not yet connected to a backend. Wire it to an
-              email service or inbox to start receiving messages.
-            </PlaceholderNote>
-            <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
-              <ApplicationForm fields={contactFields} submitLabel="Send message" accent="nsbe" />
+          <div className="mt-16 border-t border-border pt-12">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <SectionHeading eyebrow="Visit us" title="Find us at Student Group HQ" />
+                <div className="mt-6 flex items-start gap-3 text-muted-foreground">
+                  <MapPin className="mt-1 size-5 shrink-0 text-nsbe-green" aria-hidden="true" />
+                  <address className="not-italic leading-relaxed">
+                    Student Group HQ<br />
+                    Malachowsky Hall for Data Science and Information Technology<br />
+                    1889 Museum Rd<br />
+                    Gainesville, FL 32606
+                  </address>
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.614477077867!2d-82.35033642467111!3d29.643938475127854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a3002730df97%3A0x5ad3f106749ff928!2sMalachowsky%20Hall%20for%20Data%20Science%20and%20Information%20Technology!5e0!3m2!1sen!2sus!4v1786828519806!5m2!1sen!2sus"
+                  title="Map showing UF NSBE Student Group HQ at Malachowsky Hall"
+                  className="h-[320px] w-full border-0 sm:h-[380px]"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
             </div>
-        </div>
-      </Container>
+          </div>
+        </Container>
     </Section>
     </>
   )
