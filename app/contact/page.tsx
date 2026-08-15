@@ -105,7 +105,6 @@ export default function ContactPage() {
               <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
                 <ApplicationForm fields={contactFields} submitLabel="Send message" accent="nsbe" />
               </div>
-            </div>
           </div>
         </Container>
       </Section>
