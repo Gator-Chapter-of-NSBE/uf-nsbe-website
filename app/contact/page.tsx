@@ -84,7 +84,7 @@ export default function ContactPage() {
                     {site.social.instagram.handle}
                   </a>
                   <a
-                    href="https://www.nsbe.org"
+                    href="https://www.linkedin.com/in/nsbe-uf-gator-chapter-203046419/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
