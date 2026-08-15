@@ -43,69 +43,69 @@ export default function ContactPage() {
       <Section>
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-                <SectionHeading eyebrow="Chapter contacts" title="Reach the right person" />
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {site.contacts.map((contact) => (
-                    <div key={contact.email} className="rounded-xl border border-border bg-card p-4">
-                      <p className="font-medium text-foreground">{contact.name}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">{contact.role}</p>
-                      <a
-                        href={`mailto:${contact.email}`}
-                        className="mt-3 block break-all text-sm text-nsbe-green underline-offset-4 hover:underline"
-                      >
-                        {contact.email}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-
-              <div className="mt-8 border-t border-border pt-8">
-                <p className="text-sm font-medium text-foreground">Follow along</p>
-                <div className="mt-4 flex gap-3">
+            <SectionHeading eyebrow="Chapter contacts" title="Reach the right person" />
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {site.contacts.map((contact) => (
+                <div key={contact.email} className="rounded-xl border border-border bg-card p-4">
+                  <p className="font-medium text-foreground">{contact.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{contact.role}</p>
                   <a
-                    href={site.social.instagram.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                    href={`mailto:${contact.email}`}
+                    className="mt-3 block break-all text-sm text-nsbe-green underline-offset-4 hover:underline"
                   >
-                    <InstagramIcon className="size-4" />
-                    {site.social.instagram.handle}
-                  </a>
-                  <a
-                    href={site.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                  >
-                    <LinkedinIcon className="size-4" />
-                    LinkedIn
-                    <ArrowUpRight className="size-3.5 text-muted-foreground" />
-                  </a>
-                  <a
-                    href={site.social.discord}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                  >
-                    <DiscordIcon className="size-4" />
-                    Discord
-                    <ArrowUpRight className="size-3.5 text-muted-foreground" />
+                    {contact.email}
                   </a>
                 </div>
-              </div>
+              ))}
             </div>
 
-            <div>
-              <PlaceholderNote>
-                This contact form validates and confirms on-screen but is not yet connected to a backend. Wire it to an
-                email service or inbox to start receiving messages.
-              </PlaceholderNote>
-              <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
-                <ApplicationForm fields={contactFields} submitLabel="Send message" accent="nsbe" />
+            <div className="mt-8 border-t border-border pt-8">
+              <p className="text-sm font-medium text-foreground">Follow along</p>
+              <div className="mt-4 flex gap-3">
+                <a
+                  href={site.social.instagram.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                >
+                  <InstagramIcon className="size-4" />
+                  {site.social.instagram.handle}
+                </a>
+                <a
+                  href={site.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                >
+                  <LinkedinIcon className="size-4" />
+                  LinkedIn
+                  <ArrowUpRight className="size-3.5 text-muted-foreground" />
+                </a>
+                <a
+                  href={site.social.discord}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                >
+                  <DiscordIcon className="size-4" />
+                  Discord
+                  <ArrowUpRight className="size-3.5 text-muted-foreground" />
+                </a>
               </div>
+            </div>
           </div>
-        </Container>
-      </Section>
+
+          <div>
+            <PlaceholderNote>
+              This contact form validates and confirms on-screen but is not yet connected to a backend. Wire it to an
+              email service or inbox to start receiving messages.
+            </PlaceholderNote>
+            <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
+              <ApplicationForm fields={contactFields} submitLabel="Send message" accent="nsbe" />
+            </div>
+        </div>
+      </Container>
+    </Section>
     </>
   )
 }
