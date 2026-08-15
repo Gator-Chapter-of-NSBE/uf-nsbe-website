@@ -76,7 +76,7 @@ export function SignInForm() {
         <Label htmlFor="event-trigger">
           Event <span className="text-nsbe-red">*</span>
         </Label>
-        <Select value={event} onValueChange={setEvent}>
+        <Select value={event} onValueChange={(value) => setEvent(value ?? '')}>
           <SelectTrigger id="event-trigger" aria-invalid={!!errors.event}>
             <SelectValue placeholder="Select the event you're attending" />
           </SelectTrigger>

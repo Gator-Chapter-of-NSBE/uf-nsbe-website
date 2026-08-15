@@ -5,33 +5,33 @@ import { Container, SectionHeading, CtaLink } from '@/components/site/primitives
 export const metadata: Metadata = {
   title: 'Design Team',
   description:
-    'The Design Team is the creative and digital division of UF NSBE — shaping the chapter’s visual identity, media, branding, and digital experiences.',
+    'The Design Team is UF NSBE’s hands-on engineering projects division, bringing together mechanical, electrical, and computer engineering skills to build real systems.',
 }
 
 const disciplines = [
   {
-    title: 'Brand & Identity',
-    body: 'Own and evolve the UF NSBE visual language — logos, color, typography, and sub-brands like Trailblazers.',
+    title: 'CAD & Mechanical Design',
+    body: 'Create 3D models, assemblies, and technical drawings for mechanical systems using CAD workflows and design iteration.',
   },
   {
-    title: 'Graphic Design',
-    body: 'Design flyers, social graphics, merch, and event collateral that make the chapter impossible to ignore.',
+    title: 'Programming & Embedded Systems',
+    body: 'Write software and firmware that gives projects intelligence, control, and useful real-world behavior.',
   },
   {
-    title: 'Photo & Video',
-    body: 'Capture our events and members, and turn footage into recap reels and highlight content.',
+    title: 'Circuit Design & Electronics',
+    body: 'Explore schematics, components, wiring, sensors, and circuit design as part of complete engineering systems.',
   },
   {
-    title: 'Web & Digital',
-    body: 'Build and maintain digital experiences — including this website — and manage the chapter’s online presence.',
+    title: 'Fabrication & Prototyping',
+    body: 'Turn ideas into working prototypes through soldering, assembly, testing, troubleshooting, and hands-on iteration.',
   },
 ]
 
 const reasons = [
-  'Build a real portfolio with work that ships to a live audience.',
-  'Learn industry tools and workflows alongside a supportive team.',
-  'Shape how thousands of people experience UF NSBE.',
-  'No prior experience required — just curiosity and commitment.',
+  'Build a portfolio of real engineering projects from concept to prototype.',
+  'Develop practical skills across mechanical, electrical, and computer engineering.',
+  'Learn technical tools and workflows alongside a supportive project team.',
+  'No prior experience required — just curiosity, commitment, and a willingness to learn.',
 ]
 
 export default function DesignTeamPage() {
@@ -41,7 +41,7 @@ export default function DesignTeamPage() {
         tone="dark"
         eyebrow="A UF NSBE Program"
         title="The Design Team"
-        description="The creative and digital division of UF NSBE — responsible for shaping the organization’s visual identity, media presence, branding, and digital experiences."
+        description="The technical engineering projects division of UF NSBE — where members build across mechanical, electrical, and computer engineering through CAD, programming, circuit design, soldering, and prototyping."
       >
         <CtaLink href="/get-involved/join" variant="onDark" withArrow>
           Join the Design Team
@@ -56,8 +56,8 @@ export default function DesignTeamPage() {
         <Container>
           <SectionHeading
             eyebrow="What we do"
-            title="Four disciplines, one creative vision."
-            description="Members can specialize or explore across every part of the chapter’s creative output."
+            title="Four technical lanes, one project team."
+            description="Members can specialize or explore across the engineering process, from CAD and code to circuits, soldering, and working prototypes."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {disciplines.map((d, i) => (
@@ -86,7 +86,7 @@ export default function DesignTeamPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <SectionHeading
               eyebrow="Why join"
-              title="Do creative work that actually gets seen."
+              title="Build engineering work that actually works."
             />
             <ul className="space-y-4">
               {reasons.map((r, i) => (

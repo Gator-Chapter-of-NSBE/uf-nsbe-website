@@ -25,9 +25,9 @@ const paths = [
   },
   {
     title: 'Join the Design Team',
-    copy: 'Bring your creative and digital skills to the chapter as a Design Team member.',
+    copy: 'Build hands-on engineering projects across mechanical, electrical, and computer engineering.',
     href: '/programs/design-team',
-    tag: 'Creatives',
+    tag: 'Engineers',
   },
   {
     title: 'Become a Sponsor',
@@ -43,7 +43,7 @@ export default function GetInvolvedPage() {
       <PageHero
         eyebrow="Get involved"
         title="There's a place for you here"
-        description="Whether you're a student, a first-year, a creative, or an industry partner — here's how to plug in."
+        description="Whether you're a student, a first-year, an engineer, or an industry partner — here's how to plug in."
       />
 
       <Section>

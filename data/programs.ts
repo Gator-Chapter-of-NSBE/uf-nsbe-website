@@ -37,11 +37,11 @@ export const programs: Program[] = [
   {
     slug: 'design-team',
     name: 'Design Team',
-    tagline: 'The creative & digital division',
+    tagline: 'The technical engineering projects division',
     description:
-      'The creative and digital division of UF NSBE — responsible for shaping the organization’s visual identity, media presence, branding, and digital experiences.',
+      'A hands-on engineering division where members build projects across mechanical, electrical, and computer engineering through CAD, programming, circuit design, soldering, and prototyping.',
     href: '/programs/design-team',
     cta: 'Join the Design Team',
-    highlights: ['Branding', 'Graphic design', 'Photo & video', 'Web & digital'],
+    highlights: ['CAD design', 'Programming', 'Circuit design', 'Soldering & prototyping'],
   },
 ]

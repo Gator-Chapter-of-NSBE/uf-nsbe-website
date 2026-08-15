@@ -31,7 +31,7 @@ export const navigation: NavGroup[] = [
     items: [
       { label: 'Trailblazers', href: '/programs/trailblazers', description: 'First-year development program' },
       { label: 'Professional Development', href: '/programs#professional-development', description: 'Career prep, workshops & networking' },
-      { label: 'Design Team', href: '/programs/design-team', description: 'The creative & digital division' },
+      { label: 'Design Team', href: '/programs/design-team', description: 'Technical engineering projects' },
     ],
   },
   {
@@ -58,7 +58,7 @@ export const navigation: NavGroup[] = [
     items: [
       { label: 'Join NSBE', href: '/get-involved/join', description: 'Become a member' },
       { label: 'Trailblazers', href: '/programs/trailblazers/apply', description: 'Apply to the cohort' },
-      { label: 'Design Team', href: '/programs/design-team', description: 'Join the creative division' },
+      { label: 'Design Team', href: '/programs/design-team', description: 'Build engineering projects' },
       { label: 'Become a Sponsor', href: '/get-involved/sponsor', description: 'Partner with UF NSBE' },
       { label: 'Volunteer / Participate', href: '/get-involved#volunteer', description: 'Give back with the chapter' },
     ],

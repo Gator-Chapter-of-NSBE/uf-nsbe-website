@@ -105,7 +105,7 @@ export function ApplicationForm({
               ) : field.type === 'select' ? (
                 <Select
                   value={values[field.name] ?? ''}
-                  onValueChange={(v) => setValue(field.name, v)}
+                  onValueChange={(v) => setValue(field.name, v ?? '')}
                 >
                   <SelectTrigger
                     id={field.name}
