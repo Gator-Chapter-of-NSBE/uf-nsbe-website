@@ -47,7 +47,7 @@ export default function TrailblazersPage() {
                 socially from their very first semester at the University of Florida.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <CtaLink href="/programs/trailblazers/apply" variant="onDark" size="lg" withArrow>
+                <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="onDark" size="lg" withArrow>
                   Apply to Trailblazers
                 </CtaLink>
                 <CtaLink
@@ -138,7 +138,7 @@ export default function TrailblazersPage() {
               community that will have your back for the next four years and beyond.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <CtaLink href="/programs/trailblazers/apply" variant="onDark" size="lg" withArrow>
+              <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="onDark" size="lg" withArrow>
                 Start your application
               </CtaLink>
               <ArrowLink

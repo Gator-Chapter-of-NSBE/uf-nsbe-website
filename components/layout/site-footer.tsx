@@ -37,7 +37,7 @@ const footerColumns = [
     heading: 'Get Involved',
     links: [
       { label: 'Join NSBE', href: '/get-involved/join' },
-      { label: 'Apply to Trailblazers', href: '/programs/trailblazers/apply' },
+      { label: 'Apply to Trailblazers', href: 'https://forms.gle/VuzoDG9v61Q3cPMv5' },
       { label: 'Become a Sponsor', href: '/get-involved/sponsor' },
       { label: 'Contact', href: '/contact' },
     ],

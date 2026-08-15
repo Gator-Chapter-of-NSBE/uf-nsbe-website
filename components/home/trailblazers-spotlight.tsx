@@ -44,7 +44,7 @@ export function TrailblazersSpotlight() {
               <CtaLink href="/programs/trailblazers" variant="onDark" size="md" withArrow>
                 Explore Trailblazers
               </CtaLink>
-              <CtaLink href="/programs/trailblazers/apply" variant="outlineDark" size="md">
+              <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="outlineDark" size="md">
                 Apply to join
               </CtaLink>
             </div>

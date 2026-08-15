@@ -19,7 +19,7 @@ export default function CohortPage() {
         title="Meet this year’s Trailblazers"
         description="The first-year students growing together through the Trailblazers program — academically, professionally, technically, and socially."
       >
-        <CtaLink href="/programs/trailblazers/apply" variant="onDark" withArrow>
+        <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="onDark" withArrow>
           Apply to next year’s cohort
         </CtaLink>
         <CtaLink href="/programs/trailblazers/alumni" variant="outlineDark">

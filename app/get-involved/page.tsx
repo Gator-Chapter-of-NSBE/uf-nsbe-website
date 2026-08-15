@@ -20,7 +20,7 @@ const paths = [
   {
     title: 'Apply to Trailblazers',
     copy: 'First-year students: join the cohort that supports you from day one.',
-    href: '/programs/trailblazers/apply',
+    href: 'https://forms.gle/VuzoDG9v61Q3cPMv5',
     tag: 'First-years',
   },
   {
