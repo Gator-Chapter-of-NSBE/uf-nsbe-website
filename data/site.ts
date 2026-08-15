@@ -10,7 +10,7 @@ export const site = {
   shortTagline: 'Engineering the future. Building Black excellence.',
   url: 'https://ufnsbe.org',
   // Contact information — replace placeholders with real values when available.
-  email: '[EMAIL NEEDED]',
+  email: 'president.ufnsbe@gmail.com',
   location: 'University of Florida · Gainesville, FL',
   social: {
     instagram: {
