@@ -44,32 +44,6 @@ export default function ContactPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
             <div>
-              <SectionHeading eyebrow="Reach us" title="Say hello" />
-              <ul className="mt-8 space-y-6">
-                <li className="flex items-start gap-4">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-nsbe-green/10 text-nsbe-green">
-                    <Mail className="size-5" aria-hidden />
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">Email</p>
-                    <a
-                      href={`mailto:${site.email}`}
-                      className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-                    >
-                      {site.email}
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-nsbe-green/10 text-nsbe-green">
-                    <MapPin className="size-5" aria-hidden />
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">Location</p>
-                    <p className="text-sm text-muted-foreground">{site.location}</p>
-                  </div>
-                </li>
-              </ul>
 
               <div className="mt-10 border-t border-border pt-8">
                 <SectionHeading eyebrow="Chapter contacts" title="Reach the right person" />
