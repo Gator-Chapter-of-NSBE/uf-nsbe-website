@@ -43,7 +43,6 @@ export default function ContactPage() {
       <Section>
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-              //<div className="mt-10 border-t border-border pt-8">
                 <SectionHeading eyebrow="Chapter contacts" title="Reach the right person" />
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {site.contacts.map((contact) => (
@@ -59,7 +58,6 @@ export default function ContactPage() {
                     </div>
                   ))}
                 </div>
-              //</div>
 
               <div className="mt-8 border-t border-border pt-8">
                 <p className="text-sm font-medium text-foreground">Follow along</p>
