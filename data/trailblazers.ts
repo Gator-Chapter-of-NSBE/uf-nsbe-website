@@ -38,8 +38,8 @@ export const trailblazerBenefits = [
 
 /** High-level program structure across the year. */
 export const programStructure = [
-  { phase: 'Fall Kickoff', detail: 'Welcome, cohort formation, and mentor pairing.' },
+  { phase: 'Fall Kickoff', detail: 'Welcome, cohort formation, and team building.' },
   { phase: 'Skill Building', detail: 'Workshops spanning academics, professional, and technical growth.' },
   { phase: 'Community & Service', detail: 'Social events, service projects, and chapter engagement.' },
-  { phase: 'Spring Showcase', detail: 'Reflection, recognition, and transition into chapter leadership.' },
+  { phase: 'Spring Project', detail: 'Mechanical, electrical, or software project development.' },
 ] as const
