@@ -15,14 +15,14 @@ const timeline = [
     body: 'Six students at Purdue University establish the National Society of Black Engineers, launching what becomes the largest student-run organization in the United States.',
   },
   {
-    year: '[YEAR]',
+    year: '1976',
     title: 'The Gator Chapter is chartered',
-    body: '[Add the founding story of UF NSBE — the students, faculty, and moment that brought the chapter to the University of Florida.]',
+    body: 'A NSBE chapter at University of Florida is chartered under the mission of helping Black engineering students excel academically, succeed professionally, and positively impact the community with Rubin Charter as its first president.',
   },
   {
-    year: '[YEAR]',
+    year: '2023',
     title: 'Trailblazers launches',
-    body: '[Describe when and why the Trailblazers first-year program was created and the impact it has had on incoming students.]',
+    body: 'The Traiblazers first-year program is founded at University of Florida by Franck Mboussou, Brianna McDaniel, Charles James Jr., with the goal of providing a program to aid in engineering students\'s transition from highschool to college and prepare them for industry.',
   },
   {
     year: '[YEAR]',
