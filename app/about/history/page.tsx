@@ -12,7 +12,7 @@ const timeline = [
   {
     year: '1975',
     title: 'NSBE is founded nationally',
-    body: 'Six students at Purdue University establish the National Society of Black Engineers, launching what becomes the largest student-run organization in the United States.',
+    body: 'John Logan, Edward Coleman, George Smith, Stanley Kirtley, Brian Harris, and Anthony Harris (nicknamed the \'Chicago Six\') founded the National Society of Black Engineers at Purdue University in response to the 80% dropout rate of Black engineering students at their college.',
   },
   {
     year: '1976',
