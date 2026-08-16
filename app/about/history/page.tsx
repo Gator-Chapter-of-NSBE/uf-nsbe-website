@@ -12,7 +12,7 @@ const timeline = [
   {
     year: '1975',
     title: 'NSBE is founded nationally',
-    body: 'John Logan, Edward Coleman, George Smith, Stanley Kirtley, Brian Harris, and Anthony Harris (nicknamed the \'Chicago Six\') founded the National Society of Black Engineers at Purdue University in response to the 80% dropout rate of Black engineering students at their college.',
+    body: 'John Logan, Edward Coleman, George Smith, Stanley Kirtley, Brian Harris, and Anthony Harris (nicknamed the \'Chicago Six\') founded the National Society of Black Engineers at Purdue University with the first national annual meeting with 48 students representing 32 schools.',
   },
   {
     year: '1976',
