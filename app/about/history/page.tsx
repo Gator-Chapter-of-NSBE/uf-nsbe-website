@@ -17,12 +17,12 @@ const timeline = [
   {
     year: '1976',
     title: 'The Gator Chapter is chartered',
-    body: 'A NSBE chapter at University of Florida is chartered under the mission of helping Black engineering students excel academically, succeed professionally, and positively impact the community with Rubin Charter as its first president.',
+    body: 'A NSBE chapter at University of Florida is chartered under the mission of helping Black engineering students excel academically, succeed professionally, and positively impact the community with Rubin Carter as its first president.',
   },
   {
     year: '2023',
     title: 'Trailblazers launches',
-    body: 'The Traiblazers first-year program is founded at University of Florida by Franck Mboussou, Brianna McDaniel, Charles James Jr., with the goal of providing a program to aid in engineering students\'s transition from highschool to college and prepare them for industry.',
+    body: 'The Traiblazers first-year program is founded at University of Florida by Franck Mboussou, Brianna McDaniel, and Charles James Jr. with the goal of providing a program to aid in engineering students\'s transition from highschool to college and prepare them for industry.',
   },
   {
     year: '[YEAR]',

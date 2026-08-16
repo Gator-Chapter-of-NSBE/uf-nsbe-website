@@ -47,7 +47,7 @@ export default function JoinPage() {
             </div>
           </div>
         <a
-          href="https://www.nsbe.org"
+          href="https://mynsbe.nsbe.org/s/joinprocess"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-nsbe-green underline-offset-4 hover:underline"
