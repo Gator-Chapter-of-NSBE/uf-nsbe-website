@@ -22,7 +22,7 @@ const timeline = [
   {
     year: '2023',
     title: 'Trailblazers launches',
-    body: 'The Traiblazers first-year program is founded at University of Florida by Franck Mboussou, Brianna McDaniel, and Charles James Jr. with the goal of providing a program to aid in engineering students\'s transition from highschool to college and prepare them for industry.',
+    body: 'The Traiblazers first-year program is founded at University of Florida by Franck Mboussou, Brianna McDaniel, Charles James Jr., and Jonathan Docteur with the goal of providing a program to aid in engineering students\'s transition from highschool to college and prepare them for industry.',
   },
   {
     year: '[YEAR]',
