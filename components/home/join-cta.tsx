@@ -25,7 +25,7 @@ export function JoinCta() {
               invest in the next generation of Black engineers — there&apos;s a place for you here.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <CtaLink href="/join" variant="onDark" size="lg" withArrow>
+              <CtaLink href="/get-involved/join" variant="onDark" size="lg" withArrow>
                 Become a member
               </CtaLink>
               <CtaLink href="/sponsor" variant="outlineDark" size="lg">
