@@ -54,16 +54,6 @@ const timeline = [
     title: 'Trailblazers launches',
     body: 'The Traiblazers first-year program is founded at University of Florida by Franck Mboussou, Brianna McDaniel, Charles James Jr., and Jonathan Docteur with the goal of providing a program to aid in engineering students\'s transition from highschool to college and prepare them for industry.',
   },
-  {
-    year: '[YEAR]',
-    title: 'A milestone worth remembering',
-    body: '[Add a notable award, convention performance, membership milestone, or community achievement.]',
-  },
-  {
-    year: 'Today',
-    title: 'Engineering the future',
-    body: 'UF NSBE continues to grow — building Black excellence at the University of Florida one member, one meeting, and one milestone at a time.',
-  },
 ]
 
 export default function HistoryPage() {
