@@ -28,7 +28,7 @@ export function JoinCta() {
               <CtaLink href="/get-involved/join" variant="onDark" size="lg" withArrow>
                 Become a member
               </CtaLink>
-              <CtaLink href="/sponsor" variant="outlineDark" size="lg">
+              <CtaLink href="/get-involved/sponsor" variant="outlineDark" size="lg">
                 Partner with us
               </CtaLink>
             </div>
