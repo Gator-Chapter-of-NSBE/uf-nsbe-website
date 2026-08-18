@@ -67,12 +67,6 @@ export default function HistoryPage() {
 
       <section className="py-16 sm:py-20">
         <Container>
-          <div className="mb-12 max-w-2xl">
-            <PlaceholderNote>
-              The chapter-specific dates and stories below are placeholders. Replace the bracketed
-              text with confirmed history from chapter records or alumni.
-            </PlaceholderNote>
-          </div>
 
           <div className="grid gap-12 lg:grid-cols-[0.4fr_1fr]">
             <div className="lg:sticky lg:top-28 lg:self-start">
