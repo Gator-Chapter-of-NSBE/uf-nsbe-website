@@ -22,32 +22,32 @@ const timeline = [
   {
     year: '2007',
     title: 'Distinguished Chapter of the Year',
-    body: 'The Gator Chapter of the National Society of Black Engineers wins its first NSBE Chapter of the Year',
+    body: 'The Gator Chapter of the National Society of Black Engineers wins its first NSBE Chapter of the Year.',
   },
   {
     year: '2009',
     title: 'National Large Chapter of the Year',
-    body: 'The Gator Chapter of the National Society of Black Engineers wins its second NSBE Chapter of the Year',
+    body: 'The Gator Chapter of the National Society of Black Engineers wins its second NSBE Chapter of the Year.',
   },
   {
     year: '2010',
     title: 'National Distinguished Chapter of the Year',
-    body: 'The Gator Chapter of the National Society of Black Engineers wins its third NSBE Chapter of the Year',
+    body: 'The Gator Chapter of the National Society of Black Engineers wins its third NSBE Chapter of the Year.',
   },
   {
     year: '2011',
     title: 'National Large Chapter of the Year',
-    body: 'The Gator Chapter of the National Society of Black Engineers wins its fourth NSBE Chapter of the Year',
+    body: 'The Gator Chapter of the National Society of Black Engineers wins its fourth NSBE Chapter of the Year.',
   },
   {
     year: '2015',
     title: 'Dstinguished Large Chapter of the Year',
-    body: 'The Gator Chapter of the National Society of Black Engineers wins its fifth NSBE Chapter of the Year',
+    body: 'The Gator Chapter of the National Society of Black Engineers wins its fifth NSBE Chapter of the Year.',
   },
   {
     year: '2022',
     title: 'Medium Chapter of the Year',
-    body: 'The Gator Chapter of the National Society of Black Engineers wins its sixth NSBE Chapter of the Year',
+    body: 'The Gator Chapter of the National Society of Black Engineers wins its sixth NSBE Chapter of the Year.',
   },
   {
     year: '2023',
