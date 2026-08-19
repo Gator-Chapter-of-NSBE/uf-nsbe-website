@@ -110,7 +110,7 @@ export default function ContactPage() {
           <div className="mt-16 border-t border-border pt-12">
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
               <div>
-                <SectionHeading eyebrow="Visit us" title="Find us at Student Group HQ" />
+                <SectionHeading eyebrow="Visit us" title="Find us at the Engineering Student Group HQ" />
                 <div className="mt-6 flex items-start gap-3 text-muted-foreground">
                   <MapPin className="mt-1 size-5 shrink-0 text-nsbe-green" aria-hidden="true" />
                   <address className="not-italic leading-relaxed">
