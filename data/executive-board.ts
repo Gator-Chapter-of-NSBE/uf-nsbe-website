@@ -96,20 +96,12 @@ export const executiveBoard: BoardMember[] = [
     zone: 'Admin Zone',
   },
   {
-    name: 'Brenley \'JJ\' Jean',
-    position: 'Parliamentarian',
-    major: 'Computer Engineering',
-    year: 'Junior',
-    linkedin: 'https://www.linkedin.com/in/brenleyjean/',
-    zone: 'Admin Zone',
-  },
-  {
     name: 'Ryon Williams',
     position: 'Membership Chair',
     major: 'Environmental Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/ryonwilliams/',
-    zone: 'Admin Zone',
+    zone: 'Membership Zone',
   },
   {
     name: 'Xeno Long',
@@ -117,7 +109,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/xenolong/',
-    zone: 'Admin Zone',
+    zone: 'Membership Zone',
   },
   {
     name: 'Abigail Alcide',
@@ -125,7 +117,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Aerospace Engineering',
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/abigail-kayla-alcide-548a35337/',
-    zone: 'Admin Zone',
+    zone: 'Membership Zone',
   },
   {
     name: 'Keiya Johnson',
@@ -133,7 +125,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Nuclear Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/keiya-johnson/',
-    zone: 'Admin Zone',
+    zone: 'Membership Zone',
   },
   {
     name: 'Oluchi \'Lu\' Ighodalo',
@@ -141,7 +133,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science',
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/luighodalo/',
-    zone: 'Admin Zone',
+    zone: 'Membership Zone',
   },
   {
     name: 'Noel Clarke',
@@ -149,7 +141,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Electrical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/noel-clarke-uf/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   }, 
   {
     name: 'Danielle Morgan',
@@ -157,7 +149,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science & Biology',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/danielle-morgan28/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },   
   {
     name: 'Taliya Denis',
@@ -165,7 +157,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/taliya-denis/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },
   {
     name: 'Kaden Cameron',
@@ -173,7 +165,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Electrical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/kaden-cameron/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },
   {
     name: 'Moline Charles',
@@ -181,7 +173,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/molinecharles/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },
   {
     name: 'Giorgio Rusconi',
@@ -189,7 +181,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Electrical Engineering',
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/giorgio-rusconi-63b896285/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },
   {
     name: 'Marques Alsopp',
@@ -197,7 +189,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Mechanical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/marques-alsopp/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },
   {
     name: 'Emily Forestier',
@@ -205,7 +197,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/emily-forestier/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },
   {
     name: 'Junia Celestin',
@@ -213,7 +205,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/juniacelestin/',
-    zone: 'Admin Zone',
+    zone: 'Trailblazers Zone',
   },
   {
     name: 'Aliayah Coleman',
@@ -221,7 +213,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Industrial Engineering & Sales Engineering',
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/aliayah-coleman/',
-    zone: 'Admin Zone',
+    zone: 'Finance Zone',
   }, 
   {
     name: 'Jonicia Cardin',
@@ -229,7 +221,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Civil Engineering',
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/jonicia-cardin/',
-    zone: 'Admin Zone',
+    zone: 'Finance Zone',
   },  
   {
     name: 'Chukwuanonyelum \'Chuks\' Ofojuah',
@@ -237,7 +229,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/chukwuanonyelum-ofojuah-2a2888288/',
-    zone: 'Admin Zone',
+    zone: 'Finance Zone',
   },  
   {
     name: 'Kenneth \'Kent\' Fluitt',
@@ -245,7 +237,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Electrical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/kenneth-fluitt/',
-    zone: 'Admin Zone',
+    zone: 'Finance Zone',
   },
   {
     name: 'Amanda Gilzean',
@@ -253,7 +245,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/amanda-gilzean/',
-    zone: 'Admin Zone',
+    zone: 'Finance Zone',
   },  
   {
     name: 'Alanna Richardson',
@@ -261,7 +253,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Digital Arts & Sciences',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/alanna-richardson-a8b555396/',
-    zone: 'Admin Zone',
+    zone: 'Communications Zone',
   },
   {
     name: 'Ayira Alston',
@@ -269,7 +261,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/ayiraalston/',
-    zone: 'Admin Zone',
+    zone: 'Communications Zone',
   },
   {
     name: 'Bakari Kerr',
@@ -277,7 +269,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science & Electrical Engineering',
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/bakari-kerr/',
-    zone: 'Admin Zone',
+    zone: 'Communications Zone',
   },
   {
     name: 'Jovani Francois',
@@ -285,7 +277,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/jovani-francois/',
-    zone: 'Admin Zone',
+    zone: 'Communications Zone',
   },
   {
     name: 'Rayanah Mkuu',
@@ -293,7 +285,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Mechanical Engineering',
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/rayanah-mkuu/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },
   {
     name: 'Bruno Kolombia',
@@ -301,7 +293,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/bruno-kolombia/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },  
   {
     name: 'Aryanna Williams',
@@ -309,7 +301,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Mechanical Engineering',
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/aryannawilliams/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },
   {
     name: 'Weedchenska Jeanbaptiste',
@@ -317,7 +309,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Science',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/weedchenska-jeanbaptiste/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },
   {
     name: 'Abigail Hepburn',
@@ -325,7 +317,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/abigail-hepburn/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },     
   {
     name: 'Abigail Hepburn',
@@ -333,7 +325,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/abigail-hepburn/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },
   {
     name: 'Leah Habte',
@@ -341,7 +333,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Electrical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/leah-habte/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },
   {
     name: 'Leah Habte',
@@ -349,7 +341,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Electrical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/leah-habte/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },
   {
     name: 'Matan Mulugeta',
@@ -357,7 +349,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Mechanical Engineering & Electrical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/matan-mulugeta-169972370/',
-    zone: 'Admin Zone',
+    zone: 'Programs Zone',
   },
   {
     name: 'Randy Smith Jr.',
@@ -365,7 +357,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Civil Engineering',
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/randysmithjr/',
-    zone: 'Admin Zone',
+    zone: 'Senate Zone',
   },
   {
     name: 'Michael Liburd',
@@ -373,6 +365,6 @@ export const executiveBoard: BoardMember[] = [
     major: 'Biomedical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/msliburdjr/',
-    zone: 'Admin Zone',
+    zone: 'Senate Zone',
   },
 ]
