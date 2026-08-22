@@ -21,15 +21,6 @@ export default function ExecutiveBoardPage() {
 
       <section className="py-16 sm:py-20">
         <Container>
-          <div className="mb-10 max-w-2xl">
-            <PlaceholderNote>
-              Board member names, majors, photos, and LinkedIn profiles are placeholders. Update{' '}
-              <code className="rounded bg-foreground/10 px-1 py-0.5 text-xs">
-                data/executive-board.ts
-              </code>{' '}
-              each year to feature the current board.
-            </PlaceholderNote>
-          </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {executiveBoard.map((member, i) => (
