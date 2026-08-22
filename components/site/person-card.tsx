@@ -65,12 +65,21 @@ export function PersonCard({
         {bio ? (
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">{bio}</p>
         ) : null}
-        {linkedin ? (
+        {linkedin && !linkedin.startsWith('[') ? (
           <div className="mt-auto pt-4">
-            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${name}'s LinkedIn profile (opens in a new tab)`}
+              className={cn(
+                'inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-foreground transition-colors duration-200',
+                'hover:border-nsbe-green hover:text-nsbe-green',
+              )}
+            >
               <LinkedinIcon className="size-4" />
-              {linkedin.startsWith('[') ? 'LinkedIn' : linkedin}
-            </span>
+              LinkedIn
+            </a>
           </div>
         ) : null}
       </div>
