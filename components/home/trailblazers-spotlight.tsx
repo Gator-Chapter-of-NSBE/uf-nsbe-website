@@ -8,8 +8,8 @@ export function TrailblazersSpotlight() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="relative order-last aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 lg:order-first">
             <Image
-              src="/photos/trailblazers-cohort.png"
-              alt="A cohort of first-year UF NSBE Trailblazers gathered together on campus"
+              src="/photos/trailblazer_cohort_25-26.jpg"
+              alt="Trailblazers Cohort 25-26 group photo"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
