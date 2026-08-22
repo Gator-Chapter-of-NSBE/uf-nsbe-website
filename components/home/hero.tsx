@@ -1,21 +1,27 @@
-import Image from 'next/image'
 import { Container, CtaLink } from '@/components/site/primitives'
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-white">
-      {/* Background photograph */}
+      {/* Background Video */}
       <div className="absolute inset-0">
-        <Image
-          src="/photos/hero-general-body.png"
-          alt="UF NSBE members gathered together at a chapter event"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        >
+          <source src="/videos/NsbewebsitevideofinalV4.webm" type="video/webm" />
+        </video>
+        
+        {/* HORIZONTAL GRADIENT (Brightened) 
+            Changed via-ink/85 to via-ink/65 and to-ink/40 to to-ink/10 */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/65 to-ink/65" />
+        
+        {/* VERTICAL GRADIENT (Fixed Bottom Blend) 
+            Changed from-ink/90 to solid from-ink so it completely hides the video's bottom edge */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
       </div>
 
       <Container className="relative">
