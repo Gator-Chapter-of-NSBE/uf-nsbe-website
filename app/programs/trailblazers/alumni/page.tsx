@@ -22,14 +22,6 @@ export default function AlumniPage() {
 
       <section className="py-16 sm:py-20">
         <Container className="flex flex-col gap-16">
-          <div className="max-w-2xl">
-            <PlaceholderNote>
-              Alumni are organized by cohort year in{' '}
-              <code className="rounded bg-foreground/10 px-1 py-0.5 text-xs">data/alumni.ts</code>.
-              Add new cohorts to the top of the list each year — the page scales automatically.
-            </PlaceholderNote>
-          </div>
-
           {alumniCohorts.map((cohort) => (
             <div key={cohort.year}>
               <div className="mb-6 flex items-baseline gap-4 border-b border-border pb-4">

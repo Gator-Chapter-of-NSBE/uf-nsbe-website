@@ -58,8 +58,8 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
             <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-border">
               <Image
-                src="/photos/event-conference.png"
-                alt="UF NSBE members representing the chapter at a national convention"
+                src="/photos/NSBE_Eboard_25-26.JPG"
+                alt="2025-2026 Eboard photo"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
