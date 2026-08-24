@@ -35,7 +35,6 @@ export default function CohortPage() {
                 key={i}
                 name={member.name}
                 major={member.major}
-                year={member.year}
                 bio={member.bio}
                 photo={member.photo}
                 accent="trailblazers"
