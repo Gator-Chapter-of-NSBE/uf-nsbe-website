@@ -8,7 +8,6 @@
 export type TrailblazerProfile = {
   name: string
   major?: string
-  year?: string
   bio?: string
   photo?: string
 }
@@ -18,7 +17,6 @@ export const currentCohortYear = '[YEAR]'
 export const currentCohort: TrailblazerProfile[] = Array.from({ length: 8 }).map(() => ({
   name: '[NAME]',
   major: '[MAJOR]',
-  year: 'Freshman',
   bio: '[SHORT BIO NEEDED]',
 }))
 

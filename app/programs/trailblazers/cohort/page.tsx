@@ -29,23 +29,12 @@ export default function CohortPage() {
 
       <section className="py-16 sm:py-20">
         <Container>
-          <div className="mb-10 max-w-2xl">
-            <PlaceholderNote>
-              Cohort profiles are placeholders. Add this year’s Trailblazers to{' '}
-              <code className="rounded bg-foreground/10 px-1 py-0.5 text-xs">
-                data/trailblazers.ts
-              </code>{' '}
-              and update the cohort year.
-            </PlaceholderNote>
-          </div>
-
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {currentCohort.map((member, i) => (
               <PersonCard
                 key={i}
                 name={member.name}
                 major={member.major}
-                year={member.year}
                 bio={member.bio}
                 photo={member.photo}
                 accent="trailblazers"
