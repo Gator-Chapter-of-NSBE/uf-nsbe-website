@@ -1,10 +1,9 @@
 'use server'
 
 import { Resend } from 'resend'
+import { CONTACT_HONEYPOT_FIELD } from './constants'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-// Name of the hidden honeypot field rendered by the contact form.
-export const CONTACT_HONEYPOT_FIELD = 'company_website'
 
 function escapeHtml(value: string) {
   return value

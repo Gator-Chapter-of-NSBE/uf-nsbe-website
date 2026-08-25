@@ -5,7 +5,8 @@ import { Container, Section, SectionHeading } from '@/components/site/primitives
 import { ApplicationForm, type FormField } from '@/components/forms/application-form'
 import { DiscordIcon, InstagramIcon, LinkedinIcon } from '@/components/site/brand-icons'
 import { site } from '@/data/site'
-import { CONTACT_HONEYPOT_FIELD, submitContactForm } from './actions'
+import { submitContactForm } from './actions'
+import { CONTACT_HONEYPOT_FIELD } from './constants'
 
 export const metadata: Metadata = {
   title: 'Contact',
