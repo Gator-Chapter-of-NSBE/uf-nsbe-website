@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Mail, MapPin, ArrowUpRight } from 'lucide-react'
-import { PageHero, PlaceholderNote } from '@/components/site/page-hero'
+import { PageHero } from '@/components/site/page-hero'
 import { Container, Section, SectionHeading } from '@/components/site/primitives'
 import { ApplicationForm, type FormField } from '@/components/forms/application-form'
 import { DiscordIcon, InstagramIcon, LinkedinIcon } from '@/components/site/brand-icons'
 import { site } from '@/data/site'
+import { submitContactForm } from './actions'
+import { CONTACT_HONEYPOT_FIELD } from './constants'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -97,12 +99,16 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <PlaceholderNote>
-                This contact form validates and confirms on-screen but is not yet connected to a backend. Wire it to an
-                email service or inbox to start receiving messages.
-              </PlaceholderNote>
-              <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
-                <ApplicationForm fields={contactFields} submitLabel="Send message" accent="nsbe" />
+              <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+                <ApplicationForm
+                  fields={contactFields}
+                  submitLabel="Send message"
+                  accent="nsbe"
+                  action={submitContactForm}
+                  honeypotName={CONTACT_HONEYPOT_FIELD}
+                  successTitle="Message sent"
+                  successMessage="Thanks for contacting UF NSBE! We've received your message and a member of our team will get back to you soon."
+                />
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Loader2 } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
@@ -24,22 +24,37 @@ export function ApplicationForm({
   fields,
   submitLabel = 'Submit',
   accent = 'nsbe',
+  action,
+  honeypotName,
+  successTitle = 'Message received',
+  successMessage = "Thanks for reaching out! A member of our team will be in touch soon. Keep an eye on your email and our Instagram for next steps.",
 }: {
   fields: FormField[]
   submitLabel?: string
   accent?: 'nsbe' | 'trailblazers'
+  /** Called with the submitted values. Throw or return a rejected promise to signal failure. */
+  action?: (values: Record<string, string>) => Promise<void>
+  /** Name of a hidden honeypot field included in submissions for spam protection. */
+  honeypotName?: string
+  successTitle?: string
+  successMessage?: string
 }) {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
   const [values, setValues] = useState<Record<string, string>>({})
   const [errors, setErrors] = useState<Record<string, boolean>>({})
+  const [formError, setFormError] = useState<string | null>(null)
 
   function setValue(name: string, value: string) {
     setValues((v) => ({ ...v, [name]: value }))
     if (errors[name]) setErrors((e) => ({ ...e, [name]: false }))
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (submitting) return
+
+    setFormError(null)
     const nextErrors: Record<string, boolean> = {}
     for (const f of fields) {
       if (f.required && !values[f.name]?.trim()) nextErrors[f.name] = true
@@ -48,10 +63,25 @@ export function ApplicationForm({
       }
     }
     setErrors(nextErrors)
-    if (Object.keys(nextErrors).length === 0) {
-      // No backend is wired up yet — this simulates a successful submission.
+    if (Object.keys(nextErrors).length > 0) return
+
+    if (!action) {
+      // No backend is wired up — this simulates a successful submission.
       console.log('[v0] Application form submitted', values)
       setSubmitted(true)
+      return
+    }
+
+    setSubmitting(true)
+    try {
+      await action(values)
+      setSubmitted(true)
+    } catch (error) {
+      setFormError(
+        error instanceof Error ? error.message : 'Something went wrong while sending your message. Please try again.',
+      )
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -71,17 +101,29 @@ export function ApplicationForm({
         >
           <CheckCircle className="size-7" />
         </span>
-        <h3 className="font-serif text-2xl font-medium tracking-tight">Application received</h3>
-        <p className="max-w-md text-sm leading-relaxed text-muted-foreground text-pretty">
-          Thanks for applying! A member of our team will be in touch soon. Keep an eye on your email
-          and our Instagram for next steps.
-        </p>
+        <h3 className="font-serif text-2xl font-medium tracking-tight">{successTitle}</h3>
+        <p className="max-w-md text-sm leading-relaxed text-muted-foreground text-pretty">{successMessage}</p>
       </div>
     )
   }
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
+      {honeypotName ? (
+        <div className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden="true">
+          <label htmlFor={honeypotName}>Do not fill this out</label>
+          <input
+            id={honeypotName}
+            name={honeypotName}
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={values[honeypotName] ?? ''}
+            onChange={(e) => setValue(honeypotName, e.target.value)}
+          />
+        </div>
+      ) : null}
+
       <div className="grid gap-6 sm:grid-cols-2">
         {fields.map((field) => {
           const isFull = field.type === 'textarea'
@@ -146,9 +188,22 @@ export function ApplicationForm({
         })}
       </div>
 
+      {formError ? (
+        <p role="alert" className="text-sm text-nsbe-red">
+          {formError}
+        </p>
+      ) : null}
+
       <div className="flex items-center gap-4">
-        <Button type="submit" className={cn('h-11 px-7', accentBtn)}>
-          {submitLabel}
+        <Button type="submit" disabled={submitting} className={cn('h-11 px-7', accentBtn)}>
+          {submitting ? (
+            <>
+              <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+              Sending…
+            </>
+          ) : (
+            submitLabel
+          )}
         </Button>
         <p className="text-xs text-muted-foreground">
           Fields marked <span className="text-nsbe-red">*</span> are required.
