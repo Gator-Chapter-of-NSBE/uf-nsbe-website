@@ -1,58 +1,14 @@
 import type { Metadata } from 'next'
-import { CalendarDays, Clock, MapPin, ArrowUpRight } from 'lucide-react'
-import { PageHero, PlaceholderNote } from '@/components/site/page-hero'
+import { ArrowUpRight } from 'lucide-react'
+import { PageHero } from '@/components/site/page-hero'
 import { Container, Section, SectionHeading, CtaLink } from '@/components/site/primitives'
-import { Badge } from '@/components/ui/badge'
-import { upcomingEvents, pastEvents, type NsbeEvent } from '@/data/events'
+import { InstagramEmbed } from '@/components/events/instagram-embed'
+import { site } from '@/data/site'
 
 export const metadata: Metadata = {
   title: 'Events',
   description:
-    'General body meetings, professional development workshops, socials, and service — see what UF NSBE has coming up.',
-}
-
-function EventCard({ event, past }: { event: NsbeEvent; past?: boolean }) {
-  return (
-    <article
-      className={`flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40 ${
-        past ? 'opacity-90' : ''
-      }`}
-    >
-      <div className="flex items-center justify-between gap-3">
-        {event.category ? (
-          <Badge variant="secondary" className="rounded-full font-mono text-[0.7rem] uppercase tracking-wider">
-            {event.category}
-          </Badge>
-        ) : (
-          <span />
-        )}
-        {event.placeholder ? (
-          <span className="font-mono text-[0.65rem] uppercase tracking-wider text-muted-foreground">Placeholder</span>
-        ) : null}
-      </div>
-
-      <h3 className="mt-4 font-serif text-xl text-foreground text-balance">{event.title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{event.description}</p>
-
-      <dl className="mt-5 space-y-2 border-t border-border pt-5 text-sm">
-        <div className="flex items-center gap-2 text-foreground">
-          <CalendarDays className="size-4 shrink-0 text-primary" aria-hidden />
-          <dt className="sr-only">Date</dt>
-          <dd>{event.date}</dd>
-        </div>
-        <div className="flex items-center gap-2 text-muted-foreground">
-          <Clock className="size-4 shrink-0 text-primary" aria-hidden />
-          <dt className="sr-only">Time</dt>
-          <dd>{event.time}</dd>
-        </div>
-        <div className="flex items-center gap-2 text-muted-foreground">
-          <MapPin className="size-4 shrink-0 text-primary" aria-hidden />
-          <dt className="sr-only">Location</dt>
-          <dd>{event.location}</dd>
-        </div>
-      </dl>
-    </article>
-  )
+    "See what's next on the UF NSBE calendar and catch up with the chapter on Instagram.",
 }
 
 export default function EventsPage() {
@@ -61,40 +17,47 @@ export default function EventsPage() {
       <PageHero
         eyebrow="Events"
         title="What's happening at UF NSBE"
-        description="From general body meetings to professional development and national convention travel, there is always a way to plug in."
+        description="Everything the chapter has on the books lives on our Google Calendar, and everything we've already been up to lives on Instagram. Both are the source of truth — check here first."
       />
 
-      <Section>
+      <Section id="calendar-instagram">
         <Container>
-          <PlaceholderNote>
-            These events are placeholders for layout. The chapter&apos;s Google Calendar is the intended source of truth
-            — connect the Google Calendar API to populate this page automatically and keep the meeting sign-in list in
-            sync.
-          </PlaceholderNote>
+          <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-start">
+            <div id="calendar">
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <SectionHeading eyebrow="Calendar" title="On the schedule" />
+                <CtaLink href="https://calendar.google.com" variant="outline" external>
+                  Subscribe to calendar
+                  <ArrowUpRight className="size-4" />
+                </CtaLink>
+              </div>
 
-          <div className="mt-10 flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading eyebrow="Upcoming" title="On the calendar" />
-            <CtaLink href="https://calendar.google.com" variant="outline" external>
-              Subscribe to calendar
-              <ArrowUpRight className="size-4" />
-            </CtaLink>
-          </div>
+              <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+                <div className="aspect-4/3 w-full">
+                  <iframe
+                    src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&src=ZjMwMjU3N2U3Mjk1NjU4ZjE3OGIwOGU4Zjg5Yzc0NmEwOTk2YWM5Y2Q4YjIxYjgxOTRkNTk1OWI4NmNmMDQwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233f51b5"
+                    title="UF NSBE chapter events calendar"
+                    className="h-full w-full border-0"
+                    frameBorder={0}
+                    scrolling="no"
+                  />
+                </div>
+              </div>
+            </div>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {upcomingEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
-          </div>
-        </Container>
-      </Section>
+            <div id="instagram">
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <SectionHeading eyebrow="Instagram" title="Recent highlights" />
+                <CtaLink href={site.social.instagram.url} variant="outline" external>
+                  {site.social.instagram.handle}
+                  <ArrowUpRight className="size-4" />
+                </CtaLink>
+              </div>
 
-      <Section className="border-t border-border bg-muted/40">
-        <Container>
-          <SectionHeading eyebrow="Recap" title="Recent highlights" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {pastEvents.map((event) => (
-              <EventCard key={event.id} event={event} past />
-            ))}
+              <div className="mt-8 flex justify-center">
+                <InstagramEmbed />
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
