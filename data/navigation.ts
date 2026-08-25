@@ -38,9 +38,8 @@ export const navigation: NavGroup[] = [
     label: 'Events',
     href: '/events',
     items: [
-      { label: 'Upcoming Events', href: '/events#upcoming', description: 'What is happening next' },
-      { label: 'Past Events', href: '/events#past', description: 'A look back at recent gatherings' },
       { label: 'Calendar', href: '/events#calendar', description: 'Full chapter calendar' },
+      { label: 'Instagram', href: '/events#instagram', description: 'Photos & updates from @ufnsbe' },
     ],
   },
   {
