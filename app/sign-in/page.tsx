@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
-import { PageHero, PlaceholderNote } from '@/components/site/page-hero'
+import { PageHero } from '@/components/site/page-hero'
 import { Container, Section } from '@/components/site/primitives'
-import { SignInForm } from '@/components/forms/sign-in-form'
 
 export const metadata: Metadata = {
   title: 'Meeting Sign-In',
@@ -19,16 +17,16 @@ export default function SignInPage() {
       />
 
       <Section>
-        <Container className="max-w-xl">
-          <PlaceholderNote>
-            This sign-in confirms on-screen but is not yet connected to a backend. Wire it to a Google Sheet, database,
-            or the chapter&apos;s attendance system to persist check-ins. The event list can be preselected with a link
-            like <code className="font-mono text-xs">/sign-in?event=general-body-meeting</code>.
-          </PlaceholderNote>
-          <div className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <Suspense fallback={<div className="h-96" aria-hidden />}>
-              <SignInForm />
-            </Suspense>
+        <Container className="max-w-4xl">
+          <div className="overflow-hidden rounded-2xl border border-border bg-card">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfGuWSoFI3hnsi4L5Otqyh2FUiCfjeGs8kETvpRerLzj5xbog/viewform?embedded=true"
+              title="Meeting sign-in form"
+              className="block h-[1349px] w-full"
+              loading="lazy"
+            >
+              Loading…
+            </iframe>
           </div>
         </Container>
       </Section>
