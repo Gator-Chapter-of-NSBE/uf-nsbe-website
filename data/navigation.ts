@@ -46,7 +46,7 @@ export const navigation: NavGroup[] = [
     label: 'Resources',
     href: '/resources',
     items: [
-      { label: 'Presentations', href: '/resources/presentations', description: 'Slides & materials from events' },
+      // Presentations page is archived until the library is ready to launch — see app/resources/presentations/page.tsx
       { label: 'NSBE Resources', href: '/resources#nsbe', description: 'National tools & opportunities' },
       { label: 'Useful Links', href: '/resources#links', description: 'Campus & career resources' },
     ],

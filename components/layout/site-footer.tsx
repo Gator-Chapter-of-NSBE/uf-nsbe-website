@@ -27,7 +27,7 @@ const footerColumns = [
   {
     heading: 'Resources',
     links: [
-      { label: 'Presentations', href: '/resources/presentations' },
+      // Presentations page is archived until the library is ready to launch — see app/resources/presentations/page.tsx
       { label: 'NSBE Resources', href: '/resources#nsbe' },
       { label: 'Useful Links', href: '/resources#links' },
       { label: 'Meeting Sign-In', href: '/sign-in' },
