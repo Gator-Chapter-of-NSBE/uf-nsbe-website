@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { PageHero, PlaceholderNote } from '@/components/site/page-hero'
 import { Container, Section } from '@/components/site/primitives'
 import { PresentationLibrary } from '@/components/resources/presentation-library'
@@ -9,7 +10,15 @@ export const metadata: Metadata = {
     'Slide decks and materials from UF NSBE workshops, general body meetings, and professional development sessions.',
 }
 
+// Archived: this page is not yet ready to launch, so it's disabled via notFound()
+// while the implementation below is kept intact for future re-enabling.
+const PRESENTATIONS_PAGE_ENABLED = false
+
 export default function PresentationsPage() {
+  if (!PRESENTATIONS_PAGE_ENABLED) {
+    notFound()
+  }
+
   return (
     <>
       <PageHero

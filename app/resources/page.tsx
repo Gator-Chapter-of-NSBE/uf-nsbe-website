@@ -54,23 +54,27 @@ export default function ResourcesPage() {
         description="Everything from national NSBE opportunities to campus support and career resources — gathered in one place."
       />
 
-      <Section>
-        <Container>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading
-              eyebrow="Chapter"
-              title="Presentation library"
-              description="Slides and materials from our workshops, general body meetings, and professional development sessions."
-            />
-            <CtaLink href="/resources/presentations">
-              Browse presentations
-              <FileText className="size-4" />
-            </CtaLink>
-          </div>
-        </Container>
-      </Section>
+      {/*
+        Presentation library teaser is archived until the page is ready to launch.
+        See app/resources/presentations/page.tsx for the full implementation.
+        <Section>
+          <Container>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <SectionHeading
+                eyebrow="Chapter"
+                title="Presentation library"
+                description="Slides and materials from our workshops, general body meetings, and professional development sessions."
+              />
+              <CtaLink href="/resources/presentations">
+                Browse presentations
+                <FileText className="size-4" />
+              </CtaLink>
+            </div>
+          </Container>
+        </Section>
+      */}
 
-      <Section id="nsbe" className="scroll-mt-24 border-t border-border bg-muted/40">
+      <Section id="nsbe" className="scroll-mt-24 border-t border-border bg-muted/40 first:border-t-0">
         <Container>
           <SectionHeading
             eyebrow="National NSBE"
