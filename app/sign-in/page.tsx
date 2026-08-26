@@ -17,7 +17,7 @@ export default function SignInPage() {
       />
 
       <Section>
-        <Container className="max-w-2xl">
+        <Container className="max-w-4xl">
           <div className="overflow-hidden rounded-2xl border border-border bg-card">
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSfGuWSoFI3hnsi4L5Otqyh2FUiCfjeGs8kETvpRerLzj5xbog/viewform?embedded=true"
