@@ -56,7 +56,6 @@ export const navigation: NavGroup[] = [
     href: '/get-involved',
     items: [
       { label: 'Join NSBE', href: '/get-involved/join', description: 'Become a member' },
-      { label: 'Trailblazers', href: 'https://forms.gle/VuzoDG9v61Q3cPMv5', description: 'Apply to the cohort' },
       { label: 'Design Team', href: '/programs/design-team', description: 'Build engineering projects' },
       { label: 'Become a Sponsor', href: '/get-involved/sponsor', description: 'Partner with UF NSBE' },
       { label: 'Volunteer / Participate', href: '/get-involved#volunteer', description: 'Give back with the chapter' },
