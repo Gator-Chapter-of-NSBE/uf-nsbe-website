@@ -106,7 +106,7 @@ export const executiveBoard: BoardMember[] = [
   {
     name: 'Xeno Long',
     position: 'Co-Social Chair',
-    major: 'Computer Engineering',
+    major: 'Electrical Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/xenolong/',
     zone: 'Membership Zone',
