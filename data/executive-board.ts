@@ -245,7 +245,7 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/amanda-gilzean/',
-    zone: 'Finance Zone',
+    zone: 'Communications Zone',
   },  
   {
     name: 'Alanna Richardson',
@@ -257,7 +257,7 @@ export const executiveBoard: BoardMember[] = [
   },
   {
     name: 'Ayira Alston',
-    position: 'Co-Public Relations Chair',
+    position: 'Publications Chair',
     major: 'Computer Science',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/ayiraalston/',
@@ -317,22 +317,6 @@ export const executiveBoard: BoardMember[] = [
     major: 'Computer Engineering',
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/abigail-hepburn/',
-    zone: 'Programs Zone',
-  },     
-  {
-    name: 'Abigail Hepburn',
-    position: 'Co-Technical Development Chair',
-    major: 'Computer Engineering',
-    year: 'Sophomore',
-    linkedin: 'https://www.linkedin.com/in/abigail-hepburn/',
-    zone: 'Programs Zone',
-  },
-  {
-    name: 'Leah Habte',
-    position: 'Co-Technical Development Chair',
-    major: 'Electrical Engineering',
-    year: 'Sophomore',
-    linkedin: 'https://www.linkedin.com/in/leah-habte/',
     zone: 'Programs Zone',
   },
   {
