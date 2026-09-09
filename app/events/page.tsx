@@ -26,7 +26,7 @@ export default function EventsPage() {
             <div id="calendar">
               <div className="flex flex-wrap items-end justify-between gap-4">
                 <SectionHeading eyebrow="Calendar" title="On the schedule" />
-                <CtaLink href="https://calendar.google.com" variant="outline" external>
+                <CtaLink href="https://calendar.google.com/calendar/embed?src=f302577e7295658f178b08e8f89c746a0996ac9cd8b21b8194d5959b86cf040f%40group.calendar.google.com&ctz=America%2FNew_York" variant="outline" external>
                   Subscribe to calendar
                   <ArrowUpRight className="size-4" />
                 </CtaLink>
