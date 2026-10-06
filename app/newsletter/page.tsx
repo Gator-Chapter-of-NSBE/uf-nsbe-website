@@ -55,7 +55,7 @@ export default function NewsletterPage() {
               </h2>
 
               <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-                Get the updates worth opening. No noise, just what&apos;s
+                Get the updates worth opening. No noise, just what's
                 happening across UF NSBE.
               </p>
             </div>
