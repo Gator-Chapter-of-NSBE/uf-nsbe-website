@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, HeartHandshake } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { PageHero } from '@/components/site/page-hero'
-import { Container, Section, SectionHeading, CtaLink } from '@/components/site/primitives'
+import { Container, Section } from '@/components/site/primitives'
 
 export const metadata: Metadata = {
   title: 'Get Involved',
   description:
-    'Join UF NSBE, apply to Trailblazers, join the Design Team, sponsor the chapter, or volunteer with us.',
+    'Join UF NSBE, apply to Trailblazers, join the Design Team, or sponsor the chapter.',
 }
 
 const paths = [
@@ -68,29 +68,6 @@ export default function GetInvolvedPage() {
         </Container>
       </Section>
 
-      <Section id="volunteer" className="scroll-mt-24 border-t border-border bg-muted/40">
-        <Container>
-          <div className="grid items-center gap-8 rounded-3xl border border-border bg-card p-8 sm:p-12 lg:grid-cols-[1fr_auto]">
-            <div>
-              <span className="grid size-12 place-items-center rounded-xl bg-nsbe-green/10 text-nsbe-green">
-                <HeartHandshake className="size-6" aria-hidden />
-              </span>
-              <SectionHeading
-                className="mt-5"
-                eyebrow="Volunteer & participate"
-                title="Give back with the chapter"
-                description="From K-12 STEM outreach to community service, there are always ways to get involved beyond membership. Reach out to learn about upcoming opportunities."
-              />
-            </div>
-            <div className="flex flex-col gap-3">
-              <CtaLink href="/contact">Get in touch</CtaLink>
-              <CtaLink href="/events" variant="outline">
-                See upcoming events
-              </CtaLink>
-            </div>
-          </div>
-        </Container>
-      </Section>
     </>
   )
 }

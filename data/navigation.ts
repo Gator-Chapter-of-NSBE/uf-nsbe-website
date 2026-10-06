@@ -40,6 +40,7 @@ export const navigation: NavGroup[] = [
     items: [
       { label: 'Calendar', href: '/events#calendar', description: 'Full chapter calendar' },
       { label: 'Instagram', href: '/events#instagram', description: 'Photos & updates from @ufnsbe' },
+      { label: 'Newsletter', href: '/newsletter', description: 'The NSBE Wire newsletter' },
     ],
   },
   {
@@ -58,7 +59,6 @@ export const navigation: NavGroup[] = [
       { label: 'Join NSBE', href: '/get-involved/join', description: 'Become a member' },
       { label: 'Design Team', href: '/programs/design-team', description: 'Build engineering projects' },
       { label: 'Become a Sponsor', href: '/get-involved/sponsor', description: 'Partner with UF NSBE' },
-      { label: 'Volunteer / Participate', href: '/get-involved#volunteer', description: 'Give back with the chapter' },
     ],
   },
 ]
