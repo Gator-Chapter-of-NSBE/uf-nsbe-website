@@ -55,6 +55,7 @@ export default function NewsletterPage() {
                   <Mail className="size-4 text-nsbe-green" aria-hidden="true" />
                   Sign up for The NSBE Wire
                 </div>
+              //Where its supposed to be
               <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>
               </div>
 
@@ -64,6 +65,7 @@ export default function NewsletterPage() {
               </p>
             </div>
           </div>
+          <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>
         </Container>
       </Section>
     </>
