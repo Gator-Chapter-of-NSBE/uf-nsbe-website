@@ -69,6 +69,9 @@ export default function NewsletterPage() {
           <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>
         </Container>
       </Section>
+      //Will show here
+                    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>
+
     </>
   )
 }
