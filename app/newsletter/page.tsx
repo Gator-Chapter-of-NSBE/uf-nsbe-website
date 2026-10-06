@@ -6,7 +6,8 @@ import { Container, Section, SectionHeading } from '@/components/site/primitives
 
 export const metadata: Metadata = {
   title: 'Newsletter',
-  description: 'Subscribe to The NSBE Wire, the UF NSBE newsletter for chapter news, opportunities, and community highlights.',
+  description:
+    'Subscribe to The NSBE Wire, the UF NSBE newsletter for chapter news, opportunities, and community highlights.',
 }
 
 const newsletterLogo =
@@ -26,7 +27,10 @@ export default function NewsletterPage() {
           <div className="mx-auto grid max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-sm lg:grid-cols-[0.9fr_1.1fr]">
             <div className="flex min-h-[22rem] flex-col justify-between bg-ink p-8 text-white sm:p-12">
               <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
-                <Sparkles className="size-4 text-nsbe-green" aria-hidden="true" />
+                <Sparkles
+                  className="size-4 text-nsbe-green"
+                  aria-hidden="true"
+                />
                 The NSBE Wire
               </div>
 
@@ -39,7 +43,8 @@ export default function NewsletterPage() {
               </div>
 
               <p className="max-w-xs text-sm leading-relaxed text-white/65">
-                News, resources, and momentum from the University of Florida Gator Chapter.
+                News, resources, and momentum from the University of Florida
+                Gator Chapter.
               </p>
             </div>
 
@@ -52,23 +57,34 @@ export default function NewsletterPage() {
 
               <div className="mt-8 rounded-2xl border border-border bg-background p-5 sm:p-7">
                 <div className="mb-5 flex items-center gap-3 text-sm font-medium text-muted-foreground">
-                  <Mail className="size-4 text-nsbe-green" aria-hidden="true" />
+                  <Mail
+                    className="size-4 text-nsbe-green"
+                    aria-hidden="true"
+                  />
                   Sign up for The NSBE Wire
                 </div>
-              //Where its supposed to be
-<script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>              </div>
+
+                {/* Beehiiv embed */}
+                <div className="w-full">
+                  <Script
+                    async
+                    src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+                    data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"
+                  />
+                </div>
+              </div>
 
               <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
-                <ArrowRight className="size-4 text-nsbe-green" aria-hidden="true" />
+                <ArrowRight
+                  className="size-4 text-nsbe-green"
+                  aria-hidden="true"
+                />
                 Built for Gators. Powered by community.
               </p>
             </div>
           </div>
-          // Doesnt work here
-<script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>        </Container>
+        </Container>
       </Section>
-      //Wont show here but previously did but underneath the footer for some reason.
-<script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>
     </>
   )
 }
