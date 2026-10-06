@@ -65,13 +65,11 @@ export default function NewsletterPage() {
                 </div>
 
                 {/* Beehiiv embed */}
-                <div className="w-full">
-                  <Script
-                    async
-                    src="https://subscribe-forms.beehiiv.com/v3/loader.js"
-                    data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"
-                  />
-                </div>
+  <Script
+    src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+    data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"
+    strategy="afterInteractive"
+  />
               </div>
 
               <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
