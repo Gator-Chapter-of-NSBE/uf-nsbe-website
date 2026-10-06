@@ -65,12 +65,7 @@ export default function NewsletterPage() {
                 </div>
 
                 {/* Beehiiv embed */}
-  <iframe
-    src="https://subscribe-forms.beehiiv.com/v3/forms/e3879c2e-c810-4060-9109-7d5e65fa06f6"
-    title="Subscribe to The NSBE Wire"
-    className="w-full border-0"
-    style={{ minHeight: "520px" }}
-  />
+ <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="443c2b72-d270-4fe9-b40a-977030080f3a"></script>
               </div>
 
               <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
