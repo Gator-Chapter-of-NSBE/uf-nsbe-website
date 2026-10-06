@@ -7,9 +7,6 @@ export const metadata: Metadata = {
     'Subscribe to The NSBE Wire, the UF NSBE newsletter for chapter news, opportunities, and community highlights.',
 }
 
-const newsletterLogo =
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nsbeWire-1LcpMZFB0EtPwPagpqLZrYGDjmYmgA.png'
-
 export default function NewsletterPage() {
   return (
     <>
