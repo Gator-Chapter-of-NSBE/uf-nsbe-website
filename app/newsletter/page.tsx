@@ -61,7 +61,12 @@ export default function NewsletterPage() {
             </div>
 
             <div className="min-h-[650px] w-full overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-sm sm:p-8 lg:p-10">
-              <BeehiivForm />
+              <iframe
+  src="https://subscribe-forms.beehiiv.com/v3/forms/e3879c2e-c810-4060-9109-7d5e65fa06f6"
+  title="Subscribe to The NSBE Wire"
+  className="w-full border-0"
+  style={{ minHeight: '650px' }}
+/>
             </div>
           </div>
         </Container>
