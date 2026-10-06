@@ -55,7 +55,7 @@ export default function NewsletterPage() {
                   <Mail className="size-4 text-nsbe-green" aria-hidden="true" />
                   Sign up for The NSBE Wire
                 </div>
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>
+              <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e3879c2e-c810-4060-9109-7d5e65fa06f6"></script>
               </div>
 
               <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
