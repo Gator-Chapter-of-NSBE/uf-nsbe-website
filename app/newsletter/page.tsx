@@ -44,10 +44,10 @@ export default function NewsletterPage() {
         <Container>
           <div className="mx-auto w-full max-w-[760px]">
             <iframe
-              src="https://subscribe-forms.beehiiv.com/v3/forms/e3879c2e-c810-4060-9109-7d5e65fa06f6"
-              title="Subscribe to The NSBE Wire"
-              className="block min-h-[650px] w-full border-0"
-            />
+  src="https://ufnsbe-newsletter.beehiiv.com/"
+  title="The NSBE Wire"
+  className="h-[1000px] w-full border-0"
+/>
 
             <p className="mt-4 text-center text-xs text-muted-foreground">
               Having trouble with the form?{' '}
