@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
-import { ArrowRight, Mail, Sparkles } from 'lucide-react'
-import { PageHero } from '@/components/site/page-hero'
-import { Container, Section, SectionHeading } from '@/components/site/primitives'
+import { BeehiivForm } from '@/components/site/beehiiv-form'
+import { Container, Section } from '@/components/site/primitives'
 
 export const metadata: Metadata = {
   title: 'Newsletter',
@@ -16,70 +14,54 @@ const newsletterLogo =
 export default function NewsletterPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Newsletter"
-        title="Stay in the wire."
-        description="The NSBE Wire brings the latest from UF NSBE straight to your inbox — chapter updates, opportunities, events, and stories from our community."
-      />
-
-      <Section>
+      {/* Hero */}
+      <section className="border-b border-border bg-ink text-white">
         <Container>
-          <div className="mx-auto grid max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-sm lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="flex min-h-[22rem] flex-col justify-between bg-ink p-8 text-white sm:p-12">
-              <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
-                <Sparkles
-                  className="size-4 text-nsbe-green"
-                  aria-hidden="true"
-                />
-                The NSBE Wire
-              </div>
+          <div className="mx-auto flex max-w-5xl flex-col items-center px-4 py-16 text-center sm:py-20 lg:py-24">
+            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-nsbe-green">
+              UF NSBE Newsletter
+            </p>
 
-              <div className="flex items-center justify-center py-10">
-                <img
-                  src={newsletterLogo}
-                  alt="The NSBE Wire logo"
-                  className="h-auto w-full max-w-[17rem] object-contain"
-                />
-              </div>
+            <img
+              src={newsletterLogo}
+              alt="The NSBE Wire"
+              className="mb-8 h-auto w-full max-w-[20rem] object-contain sm:max-w-[24rem]"
+            />
 
-              <p className="max-w-xs text-sm leading-relaxed text-white/65">
-                News, resources, and momentum from the University of Florida
-                Gator Chapter.
+            <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              Stay in the wire.
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/70 sm:text-lg">
+              Chapter updates, opportunities, events, and stories from the
+              University of Florida NSBE community — delivered straight to
+              your inbox.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* Newsletter form */}
+      <Section className="bg-background">
+        <Container>
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-8 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-nsbe-green">
+                Subscribe
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Join The NSBE Wire
+              </h2>
+
+              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+                Get the updates worth opening. No noise, just what&apos;s
+                happening across UF NSBE.
               </p>
             </div>
 
-            <div className="flex flex-col justify-center p-8 sm:p-12">
-              <SectionHeading
-                eyebrow="Subscribe"
-                title="Your next update starts here."
-                description="Join the list to hear about what is happening across UF NSBE. No noise — just the notes worth opening."
-              />
-
-              <div className="mt-8 rounded-2xl border border-border bg-background p-5 sm:p-7">
-                <div className="mb-5 flex items-center gap-3 text-sm font-medium text-muted-foreground">
-                  <Mail
-                    className="size-4 text-nsbe-green"
-                    aria-hidden="true"
-                  />
-                  Sign up for The NSBE Wire
-                </div>
-
-                {/* Beehiiv embed */}
-  <iframe
-    src="https://subscribe-forms.beehiiv.com/v3/forms/e3879c2e-c810-4060-9109-7d5e65fa06f6"
-    title="Subscribe to The NSBE Wire"
-    className="w-full border-0"
-    style={{ minHeight: "520px" }}
-  />              
-  </div>
-
-              <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
-                <ArrowRight
-                  className="size-4 text-nsbe-green"
-                  aria-hidden="true"
-                />
-                Built for Gators. Powered by community.
-              </p>
+            <div className="min-h-[650px] w-full overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-sm sm:p-8 lg:p-10">
+              <BeehiivForm />
             </div>
           </div>
         </Container>
