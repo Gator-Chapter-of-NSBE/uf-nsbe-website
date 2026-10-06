@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { BeehiivForm } from '@/components/site/beehiiv-form'
 import { Container, Section } from '@/components/site/primitives'
 
 export const metadata: Metadata = {
@@ -22,21 +21,17 @@ export default function NewsletterPage() {
               UF NSBE Newsletter
             </p>
 
-            <img
-              src={newsletterLogo}
-              alt="The NSBE Wire"
-              className="mb-8 h-auto w-full max-w-[20rem] object-contain sm:max-w-[24rem]"
-            />
+            <div className="mb-8 rounded-2xl bg-white px-6 py-5 shadow-[0_18px_50px_-24px_rgba(0,0,0,0.7)] sm:px-10 sm:py-7">
+              <img
+                src={newsletterLogo}
+                alt="The NSBE Wire"
+                className="h-auto w-full max-w-[15rem] object-contain sm:max-w-[20rem]"
+              />
+            </div>
 
             <h1 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               Stay in the wire.
             </h1>
-
-            <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/70 sm:text-lg">
-              Chapter updates, opportunities, events, and stories from the
-              University of Florida NSBE community — delivered straight to
-              your inbox.
-            </p>
           </div>
         </Container>
       </section>
@@ -45,29 +40,25 @@ export default function NewsletterPage() {
       <Section className="bg-background">
         <Container>
           <div className="mx-auto max-w-5xl">
-            <div className="mb-8 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-nsbe-green">
-                Subscribe
-              </p>
-
-              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                Join The NSBE Wire
-              </h2>
-
-              <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-                Get the updates worth opening. No noise, just what's
-                happening across UF NSBE.
-              </p>
-            </div>
-
-            <div className="min-h-[650px] w-full overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-sm sm:p-8 lg:p-10">
+            <div className="w-full overflow-hidden rounded-3xl border border-border bg-card p-2 shadow-sm sm:p-4">
               <iframe
-  src="https://subscribe-forms.beehiiv.com/v3/forms/e3879c2e-c810-4060-9109-7d5e65fa06f6"
-  title="Subscribe to The NSBE Wire"
-  className="w-full border-0"
-  style={{ minHeight: '650px' }}
-/>
+                src="https://subscribe-forms.beehiiv.com/v3/forms/e3879c2e-c810-4060-9109-7d5e65fa06f6"
+                title="Subscribe to The NSBE Wire"
+                className="min-h-[650px] w-full border-0"
+              />
             </div>
+
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              Having trouble with the form?{' '}
+              <a
+                href="https://ufnsbe-newsletter.beehiiv.com"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-foreground underline underline-offset-2 transition-colors hover:text-nsbe-green"
+              >
+                Subscribe directly here.
+              </a>
+            </p>
           </div>
         </Container>
       </Section>
