@@ -16,6 +16,8 @@ export default function NewsletterPage() {
                   <iframe
   src="https://ufnsbe-newsletter.beehiiv.com/"
   title="The NSBE Wire"
+  className="h-[1000px] w-full border-0"
+
 />
     </>
   )
