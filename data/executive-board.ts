@@ -46,6 +46,7 @@ export const executiveBoard: BoardMember[] = [
     year: '5th Year',
     linkedin: 'https://www.linkedin.com/in/franck-mboussou/',
     zone: 'Admin Zone',
+    photo: '/photos/eboard_pics/franck_mboussou.jpg',
   },
   {
     name: 'Ryan Lowe',
@@ -54,6 +55,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/ryan-a-lowe/',
     zone: 'Admin Zone',
+    photo: '/photos/eboard_pics/ryan_lowe.jpg',
   },
   {
     name: 'Zion Tomlin',
@@ -62,6 +64,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/zion-tomlin-1b8998313/',
     zone: 'Admin Zone',
+    photo: '/photos/eboard_pics/zion_tomlin.jpg',
   },
   {
     name: 'Boluwatife \'Bolu\' Abegunde',
@@ -70,6 +73,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/boluwatife-abegunde/',
     zone: 'Admin Zone',
+    photo: '/photos/eboard_pics/bolu_abegunde.jpg',
   },
   {
     name: 'Tiffany Jones',
@@ -78,6 +82,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/tiffanyjones05/',
     zone: 'Admin Zone',
+    photo: '/photos/eboard_pics/tiffany_jones.jpg',
   },
   {
     name: 'Keith Joseph',
@@ -86,6 +91,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/keith-arma-joseph/',
     zone: 'Admin Zone',
+    photo: '/photos/eboard_pics/keith_joseph.jpg',
   },
   {
     name: 'Brenley \'JJ\' Jean',
@@ -94,6 +100,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/brenleyjean/',
     zone: 'Admin Zone',
+    photo: '/photos/eboard_pics/brenley_jean.jpg',
   },
   {
     name: 'Ryon Williams',
@@ -102,6 +109,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/ryonwilliams/',
     zone: 'Membership Zone',
+    photo: '/photos/eboard_pics/ryon_williams.jpg',
   },
   {
     name: 'Xeno Long',
@@ -110,6 +118,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/xenolong/',
     zone: 'Membership Zone',
+    photo: '/photos/eboard_pics/xeno_long.jpg',
   },
   {
     name: 'Abigail Alcide',
@@ -118,6 +127,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/abigail-kayla-alcide-548a35337/',
     zone: 'Membership Zone',
+    photo: '/photos/eboard_pics/abigail_alcide.jpg',
   },
   {
     name: 'Keiya Johnson',
@@ -126,6 +136,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/keiya-johnson/',
     zone: 'Membership Zone',
+    photo: '/photos/eboard_pics/keiya_johnson.jpg',
   },
   {
     name: 'Oluchi \'Lu\' Ighodalo',
@@ -134,6 +145,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/luighodalo/',
     zone: 'Membership Zone',
+    photo: '/photos/eboard_pics/lu_ighodalo.jpg',
   },
   {
     name: 'Danielle Morgan',
@@ -142,6 +154,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/danielle-morgan28/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/danielle_morgan.jpg',
   },   
   {
     name: 'Taliya Denis',
@@ -150,6 +163,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/taliya-denis/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/taliya_denis.jpg',
   },
   {
     name: 'Kaden Cameron',
@@ -158,6 +172,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/kaden-cameron/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/kaden_cameron.jpg',
   },
   {
     name: 'Noel Clarke',
@@ -166,6 +181,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/noel-clarke-uf/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/noel_clarke.jpg',
   }, 
   {
     name: 'Moline Charles',
@@ -174,6 +190,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/molinecharles/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/moline_charles.jpg',
   },
   {
     name: 'Marques Alsopp',
@@ -182,6 +199,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/marques-alsopp/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/marques_alsopp.jpg',
   },
   {
     name: 'Emily Forestier',
@@ -190,6 +208,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/emily-forestier/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/emily_forestier.jpg',
   },
   {
     name: 'Junia Celestin',
@@ -198,6 +217,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/juniacelestin/',
     zone: 'Trailblazers Zone',
+    photo: '/photos/eboard_pics/junia_celestin.jpg',
   },
   {
     name: 'Aliayah Coleman',
@@ -206,6 +226,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/aliayah-coleman/',
     zone: 'Finance Zone',
+    photo: '/photos/eboard_pics/aliayah_coleman.png',
   }, 
   {
     name: 'Jonicia Cardin',
@@ -214,6 +235,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/jonicia-cardin/',
     zone: 'Finance Zone',
+    photo: '/photos/eboard_pics/jonicia_cardin.png',
   },  
   {
     name: 'Chukwuanonyelum \'Chuks\' Ofojuah',
@@ -222,6 +244,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/chukwuanonyelum-ofojuah-2a2888288/',
     zone: 'Finance Zone',
+    photo: '/photos/eboard_pics/chuks_ofojuah.jpg',
   },  
   {
     name: 'Kenneth \'Kent\' Fluitt',
@@ -230,6 +253,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/kenneth-fluitt/',
     zone: 'Finance Zone',
+    photo: '/photos/eboard_pics/kent_fluitt.jpg',
   },
   {
     name: 'Amanda Gilzean',
@@ -238,6 +262,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/amanda-gilzean/',
     zone: 'Communications Zone',
+    photo: '/photos/eboard_pics/amanda_gilzean.jpg',
   },  
   {
     name: 'Alanna Richardson',
@@ -246,6 +271,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/alanna-richardson-a8b555396/',
     zone: 'Communications Zone',
+    photo: '/photos/eboard_pics/alanna_richardson.jpg',
   },
   {
     name: 'Ayira Alston',
@@ -254,6 +280,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/ayiraalston/',
     zone: 'Communications Zone',
+    photo: '/photos/eboard_pics/ayira_alston.jpg',
   },
   {
     name: 'Bakari Kerr',
@@ -262,6 +289,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Junior',
     linkedin: 'https://www.linkedin.com/in/bakari-kerr/',
     zone: 'Communications Zone',
+    photo: '/photos/eboard_pics/bakari_kerr.jpg',
   },
   {
     name: 'Jovani Francois',
@@ -270,6 +298,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/jovani-francois/',
     zone: 'Communications Zone',
+    photo: '/photos/eboard_pics/jovani_francois.jpg',
   },
   {
     name: 'Rayanah Mkuu',
@@ -278,6 +307,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/rayanah-mkuu/',
     zone: 'Programs Zone',
+    photo: '/photos/eboard_pics/rayanah_mkuu.jpg',
   },
   {
     name: 'Bruno Kolombia',
@@ -286,6 +316,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/bruno-kolombia/',
     zone: 'Programs Zone',
+    photo: '/photos/eboard_pics/bruno_kolombia.jpg',
   },  
   {
     name: 'Aryanna Williams',
@@ -294,6 +325,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/aryannawilliams/',
     zone: 'Programs Zone',
+    photo: '/photos/eboard_pics/aryanna_williams.jpg',
   },
   {
     name: 'Weedchenska Jeanbaptiste',
@@ -302,6 +334,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/weedchenska-jeanbaptiste/',
     zone: 'Programs Zone',
+    photo: '/photos/eboard_pics/weedchenska_jeanbaptiste.jpg',
   },
   {
     name: 'Abigail Hepburn',
@@ -310,6 +343,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/abigail-hepburn/',
     zone: 'Programs Zone',
+    photo: '/photos/eboard_pics/abigail_hepburn.jpg',
   },
   {
     name: 'Leah Habte',
@@ -318,6 +352,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/leah-habte/',
     zone: 'Programs Zone',
+    photo: '/photos/eboard_pics/leah_habte.jpg',
   },
   {
     name: 'Matan Mulugeta',
@@ -326,6 +361,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/matan-mulugeta-169972370/',
     zone: 'Programs Zone',
+    photo: '/photos/eboard_pics/matan_mulugeta.jpg',
   },
   {
     name: 'Randy Smith Jr.',
@@ -334,6 +370,7 @@ export const executiveBoard: BoardMember[] = [
     year: 'Senior',
     linkedin: 'https://www.linkedin.com/in/randysmithjr/',
     zone: 'Senate Zone',
+    photo: '/photos/eboard_pics/randy_smith.jpg',
   },
   {
     name: 'Michael Liburd',
@@ -342,5 +379,6 @@ export const executiveBoard: BoardMember[] = [
     year: 'Sophomore',
     linkedin: 'https://www.linkedin.com/in/msliburdjr/',
     zone: 'Senate Zone',
+    photo: '/photos/eboard_pics/michael_liburd.jpg',
   },
 ]
