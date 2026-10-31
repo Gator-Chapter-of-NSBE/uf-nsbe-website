@@ -31,6 +31,7 @@ const footerColumns = [
       { label: 'NSBE Resources', href: '/resources#nsbe' },
       { label: 'Useful Links', href: '/resources#links' },
       { label: 'Meeting Sign-In', href: '/sign-in' },
+      { label: 'Member Portal', href: '/portal' },
     ],
   },
   {
