@@ -1,5 +1,5 @@
 /**
- * Event data. The chapter's Google Calendar (embedded on /events) is the
+ * Event data. The chapter's Google Calendar (listed on /events) is the
  * source of truth for what's happening and when — no event list is
  * hardcoded here.
  */

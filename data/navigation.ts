@@ -63,11 +63,6 @@ export const navigation: NavGroup[] = [
         description: 'Full chapter calendar',
       },
       {
-        label: 'Instagram',
-        href: '/events#instagram',
-        description: 'Photos & updates from @ufnsbe',
-      },
-      {
         label: 'Newsletter',
         href: '/newsletter',
         description: 'The NSBE Wire newsletter',

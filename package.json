@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit --incremental false",
-    "test:portal": "node scripts/test-portal.mjs"
+    "test:portal": "node scripts/test-portal.mjs",
+    "test:calendar": "node scripts/test-calendar.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

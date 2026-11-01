@@ -21,7 +21,7 @@ Pages use Server Components by default. Interactive forms, navigation, carousels
 
 ### Data and request flows
 
-- **Public pages:** route components compose shared UI and import chapter content from `data/`. Calendar and other external content are embedded in the browser.
+- **Public pages:** route components compose shared UI and import chapter content from `data/`. Events are fetched server-side from Google Calendar and cached for five minutes; other integrations may use browser embeds.
 - **Contact:** `ApplicationForm` calls `submitContactForm` on the server, which validates input, checks a hidden honeypot, escapes HTML, and calls Resend for a chapter notification and sender confirmation. Messages are not stored in the portal database.
 - **Portal login:** a Server Action starts Google OAuth through Supabase. Google returns through Supabase to `/auth/callback`, which exchanges the code for a cookie-based session and calls `claim_member()`. Incomplete profiles go to `/portal/profile`; completed profiles go to `/portal`.
 - **Portal data:** protected pages call `requireMember()` to validate the session and claim/load the member. Server-side Supabase queries run with that user's permissions. `readAll()` fetches dashboard records in batches of 500 to avoid truncating historical totals at API response limits.
@@ -48,12 +48,13 @@ components/
   ui/                        Reusable UI controls
   forms/                     Configurable application/contact form
   portal/                    Member profile form
-  events/                    Instagram embed
+  events/                    Custom monthly event list
   resources/                 Interactive presentation library
 data/                       Chapter content, people, navigation, programs, resources
 lib/
   supabase/                  Environment helpers and cookie-aware server client
   portal/                    Session guard, types, membership rules, paginated reads
+  calendar/                  Google Calendar fetching, date formatting, event grouping
   utils.ts                   Shared styling utilities
 public/                      Photos, logos, icons, placeholders, hero video
 supabase/migrations/          Schema, constraints, functions, grants, RLS policies
@@ -73,7 +74,7 @@ next.config.mjs              Build and image configuration
 | `/about`, `/about/history`, `/about/executive-board` | Chapter background and leadership |
 | `/programs`, `/programs/design-team` | Programs and design team |
 | `/programs/trailblazers`, `/programs/trailblazers/cohort`, `/programs/trailblazers/alumni` | Trailblazers program and people |
-| `/events` | Embedded chapter Google Calendar and event content |
+| `/events` | Upcoming Google Calendar events in a custom month-grouped list |
 | `/get-involved`, `/get-involved/join`, `/get-involved/sponsor` | Participation, membership, sponsorship |
 | `/resources`, `/resources/presentations` | External resources and presentation library |
 | `/newsletter` | Beehiiv newsletter archive |
@@ -135,14 +136,13 @@ The dashboard uses `America/New_York` for event dates and current-semester selec
 | Supabase | Portal Auth, PostgreSQL, data API; environment variables and committed migration |
 | Google OAuth | Provider configured in Google Cloud and Supabase; basic identity scopes only |
 | Resend | Contact notification and confirmation emails; server-only environment variables |
-| Google Calendar | Iframe in `app/events/page.tsx`; maintained separately from portal event records |
+| Google Calendar | Server-side Calendar API list in `app/events/page.tsx`; see [calendar setup](docs/GOOGLE_CALENDAR_SETUP.md). Separate from portal attendance records. |
 | Google Forms | Event check-in at `/sign-in` and external program applications; submissions are not automatically imported into Supabase |
 | Beehiiv | Archive iframe in `app/newsletter/page.tsx`; subscription loader/form ID in `components/site/beehiiv-form.tsx` |
-| Instagram | Embed script in `components/events/instagram-embed.tsx` |
 | Google Maps | Location iframe in `app/contact/page.tsx` |
 | Vercel Analytics | Production-only component in `app/layout.tsx` |
 
-Calendar identifiers on database events support future integration; calendar sync is not implemented. The presentation library uses placeholder records in `data/presentations.ts`; Google Drive listing is also a future integration.
+The public event list reads Google Calendar, but calendar-to-database synchronization and administrator event selection are not implemented yet. The presentation library uses placeholder records in `data/presentations.ts`; Google Drive listing is also a future integration.
 
 ## Local development
 

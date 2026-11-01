@@ -1,64 +1,75 @@
 import type { Metadata } from 'next'
-import { ArrowUpRight } from 'lucide-react'
+import { CalendarDays } from 'lucide-react'
 import { PageHero } from '@/components/site/page-hero'
-import { Container, Section, SectionHeading, CtaLink } from '@/components/site/primitives'
-import { InstagramEmbed } from '@/components/events/instagram-embed'
-import { site } from '@/data/site'
+import {
+  Container,
+  Section,
+  SectionHeading,
+  CtaLink,
+} from '@/components/site/primitives'
+import { EventList } from '@/components/events/event-list'
+import { getCalendarEvents } from '@/lib/calendar/google'
+import { calendarLinks } from '@/data/calendar'
 
 export const metadata: Metadata = {
   title: 'Events',
   description:
-    "See what's next on the UF NSBE calendar and catch up with the chapter on Instagram.",
+    'Explore upcoming UF NSBE meetings, workshops, socials, and chapter events.',
 }
 
-export default function EventsPage() {
+export const revalidate = 300
+
+export default async function EventsPage() {
+  const calendar = await getCalendarEvents()
+  const links = calendarLinks(calendar.calendarId)
   return (
     <>
       <PageHero
         eyebrow="Events"
         title="What's happening at UF NSBE"
-        description="Everything the chapter has on the books lives on our Google Calendar, and everything we've already been up to lives on Instagram. Both are the source of truth — check here first."
+        description="Find your next meeting, workshop, or chance to connect with the Gator Chapter. We look forward to seeing you there."
       />
-
-      <Section id="calendar-instagram">
+      <Section id="calendar" className="scroll-mt-24">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-start">
-            <div id="calendar">
-              <div className="flex flex-wrap items-end justify-between gap-4">
-                <SectionHeading eyebrow="Calendar" title="On the schedule" />
-                <CtaLink href="https://calendar.google.com/calendar/embed?src=f302577e7295658f178b08e8f89c746a0996ac9cd8b21b8194d5959b86cf040f%40group.calendar.google.com&ctz=America%2FNew_York" variant="outline" external>
-                  Subscribe to calendar
-                  <ArrowUpRight className="size-4" />
-                </CtaLink>
-              </div>
-
-              <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-                <div className="aspect-4/3 w-full">
-                  <iframe
-                    src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&src=ZjMwMjU3N2U3Mjk1NjU4ZjE3OGIwOGU4Zjg5Yzc0NmEwOTk2YWM5Y2Q4YjIxYjgxOTRkNTk1OWI4NmNmMDQwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233f51b5"
-                    title="UF NSBE chapter events calendar"
-                    className="h-full w-full border-0"
-                    frameBorder={0}
-                    scrolling="no"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div id="instagram">
-              <div className="flex flex-wrap items-end justify-between gap-4">
-                <SectionHeading eyebrow="Instagram" title="Recent highlights" />
-                <CtaLink href={site.social.instagram.url} variant="outline" external>
-                  {site.social.instagram.handle}
-                  <ArrowUpRight className="size-4" />
-                </CtaLink>
-              </div>
-
-              <div className="mt-8 flex justify-center">
-                <InstagramEmbed />
-              </div>
-            </div>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="Chapter calendar"
+              title="Coming up"
+              description="Upcoming events over the next six months. All times are Eastern."
+            />
+            <CtaLink href={links.subscribe} variant="outline" external>
+              <CalendarDays className="size-4" aria-hidden />
+              Subscribe to calendar
+            </CtaLink>
           </div>
+          {calendar.status === 'ready' && calendar.events.length > 0 ? (
+            <EventList events={calendar.events} />
+          ) : (
+            <div className="mt-10 rounded-xl border border-dashed border-border bg-muted/30 px-6 py-12 text-center sm:px-10">
+              <CalendarDays
+                className="mx-auto size-8 text-nsbe-green"
+                aria-hidden
+              />
+              <h3 className="mt-4 font-serif text-2xl">
+                {calendar.status === 'ready'
+                  ? 'More events are on the way.'
+                  : 'See what’s next on our calendar.'}
+              </h3>
+              <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                {calendar.status === 'ready'
+                  ? 'There are no upcoming events listed right now. Check back soon or subscribe to stay in the loop.'
+                  : 'The event list is temporarily unavailable. You can still view the chapter schedule directly in Google Calendar.'}
+              </p>
+              <CtaLink
+                href={links.view}
+                variant="outline"
+                external
+                className="mt-6"
+              >
+                Open Google Calendar
+              </CtaLink>
+            </div>
+          )}
         </Container>
       </Section>
     </>
