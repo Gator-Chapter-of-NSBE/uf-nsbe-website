@@ -4,6 +4,10 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Container } from '@/components/site/primitives'
 import { InstagramIcon } from '@/components/site/brand-icons'
 import { site } from '@/data/site'
+import {
+  trailblazersApplicationsOpen,
+  trailblazersApplicationUrl,
+} from '@/data/trailblazers-applications'
 
 const footerColumns = [
   {
@@ -16,11 +20,10 @@ const footerColumns = [
     ],
   },
   {
-    heading: 'Programs',
+    heading: 'Trailblazers',
     links: [
       { label: 'Trailblazers', href: '/programs/trailblazers' },
-      { label: 'Professional Development', href: '/programs#professional-development' },
-      { label: 'Design Team', href: '/programs/design-team' },
+      { label: 'Current Cohort', href: '/programs/trailblazers/cohort' },
       { label: 'Trailblazers Alumni', href: '/programs/trailblazers/alumni' },
     ],
   },
@@ -38,7 +41,9 @@ const footerColumns = [
     heading: 'Get Involved',
     links: [
       { label: 'Join NSBE', href: '/get-involved/join' },
-      { label: 'Apply to Trailblazers', href: 'https://forms.gle/VuzoDG9v61Q3cPMv5' },
+      ...(trailblazersApplicationsOpen
+        ? [{ label: 'Apply to Trailblazers', href: trailblazersApplicationUrl }]
+        : []),
       { label: 'Become a Sponsor', href: '/get-involved/sponsor' },
       { label: 'Contact', href: '/contact' },
     ],
@@ -53,7 +58,8 @@ export function SiteFooter() {
         <Container className="flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl">
             <h2 className="font-serif text-2xl font-medium tracking-tight text-balance sm:text-3xl">
-              Join the movement, or partner with the next generation of Black engineers.
+              Join the movement, or partner with the next generation of Black
+              engineers.
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -78,7 +84,11 @@ export function SiteFooter() {
       {/* Main footer */}
       <Container className="grid grid-cols-2 gap-8 py-14 md:grid-cols-6">
         <div className="col-span-2">
-          <Link href="/" className="inline-flex items-center gap-3" aria-label="UF NSBE home">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-3"
+            aria-label="UF NSBE home"
+          >
             <span className="relative block h-11 w-10 shrink-0">
               <Image
                 src="/logos/nsbe-logo.png"
@@ -96,8 +106,9 @@ export function SiteFooter() {
             </span>
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60 text-pretty">
-            The University of Florida Gator Chapter of the National Society of Black Engineers —
-            engineering the future and building Black excellence.
+            The University of Florida Gator Chapter of the National Society of
+            Black Engineers — engineering the future and building Black
+            excellence.
           </p>
           <a
             href={site.social.instagram.url}
@@ -111,7 +122,11 @@ export function SiteFooter() {
         </div>
 
         {footerColumns.map((col) => (
-          <nav key={col.heading} aria-label={col.heading} className="col-span-1">
+          <nav
+            key={col.heading}
+            aria-label={col.heading}
+            className="col-span-1"
+          >
             <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
               {col.heading}
             </h3>
@@ -135,8 +150,8 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-3 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} UF NSBE — University of Florida Gator Chapter. All rights
-            reserved.
+            © {new Date().getFullYear()} UF NSBE — University of Florida Gator
+            Chapter. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <span>{site.location}</span>

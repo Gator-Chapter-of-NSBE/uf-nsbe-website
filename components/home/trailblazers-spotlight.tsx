@@ -1,5 +1,9 @@
 import Image from 'next/image'
 import { Container, CtaLink } from '@/components/site/primitives'
+import {
+  trailblazersApplicationsOpen,
+  trailblazersApplicationUrl,
+} from '@/data/trailblazers-applications'
 
 export function TrailblazersSpotlight() {
   return (
@@ -35,18 +39,31 @@ export function TrailblazersSpotlight() {
               Trailblazers: where the first year becomes a foundation
             </h2>
             <p className="mt-5 max-w-xl leading-relaxed text-white/70">
-              Trailblazers is our freshman development and community program — a dedicated space for
-              incoming students to grow academically, professionally, technically, and socially from
-              their very first semester at the University of Florida.
+              Trailblazers is our freshman development and community program — a
+              dedicated space for incoming students to grow academically,
+              professionally, technically, and socially from their very first
+              semester at the University of Florida.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <CtaLink href="/programs/trailblazers" variant="onDark" size="md" withArrow>
+              <CtaLink
+                href="/programs/trailblazers"
+                variant="onDark"
+                size="md"
+                withArrow
+              >
                 Explore Trailblazers
               </CtaLink>
-              <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="outlineDark" size="md">
-                Apply to join
-              </CtaLink>
+              {trailblazersApplicationsOpen && (
+                <CtaLink
+                  href={trailblazersApplicationUrl}
+                  external
+                  variant="outlineDark"
+                  size="md"
+                >
+                  Apply to join
+                </CtaLink>
+              )}
             </div>
           </div>
         </div>

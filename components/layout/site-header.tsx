@@ -3,12 +3,18 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ChevronDown, Menu, LogIn } from 'lucide-react'
+import { ChevronDown, Menu } from 'lucide-react'
+import { AccountMenu } from '@/components/layout/account-menu'
 import { navigation } from '@/data/navigation'
 import { Logo } from '@/components/site/logo'
 import { Container } from '@/components/site/primitives'
 import { cn } from '@/lib/utils'
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet'
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
@@ -35,9 +41,13 @@ export function SiteHeader() {
         <Logo />
 
         {/* Desktop navigation */}
-        <nav aria-label="Primary" className="hidden lg:flex lg:items-center lg:gap-1">
+        <nav
+          aria-label="Primary"
+          className="hidden lg:flex lg:items-center lg:gap-1"
+        >
           {navigation.map((group) => {
-            const active = pathname === group.href || pathname.startsWith(group.href + '/')
+            const active =
+              pathname === group.href || pathname.startsWith(group.href + '/')
             return (
               <div key={group.label} className="group relative">
                 <Link
@@ -62,7 +72,9 @@ export function SiteHeader() {
                         href={item.href}
                         className="flex flex-col gap-0.5 rounded-md px-3 py-2.5 transition-colors hover:bg-secondary focus-visible:bg-secondary focus-visible:outline-none"
                       >
-                        <span className="text-sm font-medium text-foreground">{item.label}</span>
+                        <span className="text-sm font-medium text-foreground">
+                          {item.label}
+                        </span>
                         {item.description ? (
                           <span className="text-xs leading-snug text-muted-foreground">
                             {item.description}
@@ -77,48 +89,39 @@ export function SiteHeader() {
           })}
         </nav>
 
-        {/* Right-side actions (desktop) */}
-        <div className="hidden items-center gap-2 lg:flex">
+        {/* Shared account controls keep desktop and mobile in sync. */}
+        <div className="flex shrink-0 items-center gap-2">
           <Link
             href="/contact"
-            className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="hidden rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50 lg:block"
           >
             Contact
           </Link>
           <Link
             href="/sign-in"
-            className="inline-flex h-10 items-center gap-1.5 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="hidden h-9 items-center rounded-md border border-input px-3 text-sm font-medium transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:inline-flex"
           >
-            <LogIn className="size-4" />
-            Sign In
+            Event check-in
           </Link>
-        </div>
-
-        {/* Mobile actions */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <Link
-            href="/sign-in"
-            className="inline-flex h-9 items-center gap-1.5 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground"
-          >
-            <LogIn className="size-4" />
-            Sign In
-          </Link>
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger
-              render={
-                <button
-                  type="button"
-                  aria-label="Open menu"
-                  className="inline-flex size-9 items-center justify-center rounded-md border border-border text-foreground"
-                />
-              }
-            >
-              <Menu className="size-5" />
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[86%] max-w-sm p-0">
-              <MobileNav pathname={pathname} />
-            </SheetContent>
-          </Sheet>
+          <AccountMenu />
+          <div className="lg:hidden">
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger
+                render={
+                  <button
+                    type="button"
+                    aria-label="Open menu"
+                    className="inline-flex size-9 items-center justify-center rounded-md border border-border text-foreground"
+                  />
+                }
+              >
+                <Menu className="size-5" />
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[86%] max-w-sm p-0">
+                <MobileNav pathname={pathname} />
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </Container>
     </header>
@@ -172,6 +175,16 @@ function MobileNav({ pathname }: { pathname: string }) {
         </ul>
       </nav>
       <div className="border-t border-border p-4">
+        <SheetClose
+          render={
+            <Link
+              href="/sign-in"
+              className="mb-3 flex h-11 items-center justify-center rounded-md bg-primary text-sm font-medium text-primary-foreground"
+            />
+          }
+        >
+          Event check-in
+        </SheetClose>
         <SheetClose
           render={
             <Link

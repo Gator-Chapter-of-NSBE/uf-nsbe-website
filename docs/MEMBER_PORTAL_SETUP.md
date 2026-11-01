@@ -1,5 +1,15 @@
 # Member portal: stage one
 
+## Trailblazers application links
+
+Applications are closed by default. To reopen them, set
+`TRAILBLAZERS_APPLICATIONS_OPEN=true` in Vercel's Production environment and
+redeploy. Set it to `false` and redeploy to close them again. This controls all
+application links in the Trailblazers pages, homepage, Get Involved page, and
+footer. The application URL is maintained in `data/trailblazers-applications.ts`.
+This setting hides website links; close the Google Form itself separately if you
+also want to reject submissions from people who already have its URL.
+
 The portal lives at `/portal`. The existing `/sign-in` Google Form is unchanged.
 This stage includes Google login, verified-email linking, editable profiles, the
 database permission model, and a dashboard for semester attendance and points.

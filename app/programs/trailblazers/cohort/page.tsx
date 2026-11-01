@@ -3,6 +3,10 @@ import { PageHero, PlaceholderNote } from '@/components/site/page-hero'
 import { Container, CtaLink } from '@/components/site/primitives'
 import { PersonCard } from '@/components/site/person-card'
 import { currentCohort, currentCohortYear } from '@/data/trailblazers'
+import {
+  trailblazersApplicationsOpen,
+  trailblazersApplicationUrl,
+} from '@/data/trailblazers-applications'
 
 export const metadata: Metadata = {
   title: 'Trailblazers Cohort',
@@ -19,9 +23,16 @@ export default function CohortPage() {
         title="Meet this year’s Trailblazers"
         description="The first-year students growing together through the Trailblazers program — academically, professionally, technically, and socially."
       >
-        <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="onDark" withArrow>
-          Apply to next year’s cohort
-        </CtaLink>
+        {trailblazersApplicationsOpen && (
+          <CtaLink
+            href={trailblazersApplicationUrl}
+            external
+            variant="onDark"
+            withArrow
+          >
+            Apply to next year’s cohort
+          </CtaLink>
+        )}
         <CtaLink href="/programs/trailblazers/alumni" variant="outlineDark">
           View alumni
         </CtaLink>

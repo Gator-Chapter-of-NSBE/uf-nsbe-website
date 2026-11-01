@@ -1,7 +1,16 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Container, SectionHeading, CtaLink, ArrowLink } from '@/components/site/primitives'
+import {
+  Container,
+  SectionHeading,
+  CtaLink,
+  ArrowLink,
+} from '@/components/site/primitives'
 import { trailblazerBenefits, programStructure } from '@/data/trailblazers'
+import {
+  trailblazersApplicationsOpen,
+  trailblazersApplicationUrl,
+} from '@/data/trailblazers-applications'
 
 export const metadata: Metadata = {
   title: 'Trailblazers',
@@ -42,14 +51,23 @@ export default function TrailblazersPage() {
                 Blaze your trail from day one.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75 text-pretty">
-                Trailblazers is our freshman development and community program — a dedicated space
-                for incoming students to grow academically, professionally, technically, and
-                socially from their very first semester at the University of Florida.
+                Trailblazers is our freshman development and community program —
+                a dedicated space for incoming students to grow academically,
+                professionally, technically, and socially from their very first
+                semester at the University of Florida.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="onDark" size="lg" withArrow>
-                  Apply to Trailblazers
-                </CtaLink>
+                {trailblazersApplicationsOpen && (
+                  <CtaLink
+                    href={trailblazersApplicationUrl}
+                    external
+                    variant="onDark"
+                    size="lg"
+                    withArrow
+                  >
+                    Apply to Trailblazers
+                  </CtaLink>
+                )}
                 <CtaLink
                   href="/programs/trailblazers/cohort"
                   variant="outlineDark"
@@ -88,8 +106,13 @@ export default function TrailblazersPage() {
                 key={b.title}
                 className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-tb-purple/40"
               >
-                <span aria-hidden className="block h-1.5 w-8 rounded-full bg-tb-purple" />
-                <h3 className="mt-4 font-serif text-lg font-medium tracking-tight">{b.title}</h3>
+                <span
+                  aria-hidden
+                  className="block h-1.5 w-8 rounded-full bg-tb-purple"
+                />
+                <h3 className="mt-4 font-serif text-lg font-medium tracking-tight">
+                  {b.title}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
                   {b.description}
                 </p>
@@ -116,7 +139,9 @@ export default function TrailblazersPage() {
                 <span className="font-serif text-4xl font-medium text-tb-purple/40">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-3 font-serif text-lg font-medium tracking-tight">{step.phase}</h3>
+                <h3 className="mt-3 font-serif text-lg font-medium tracking-tight">
+                  {step.phase}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
                   {step.detail}
                 </p>
@@ -131,16 +156,36 @@ export default function TrailblazersPage() {
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-serif text-3xl font-medium leading-[1.1] tracking-tight text-balance sm:text-4xl">
-              Ready to become a Trailblazer?
+              {trailblazersApplicationsOpen
+                ? 'Ready to become a Trailblazer?'
+                : 'Get to know Trailblazers'}
             </h2>
             <p className="mx-auto mt-5 max-w-xl leading-relaxed text-white/70">
-              Applications open to first-year students. Take the first step toward a
-              community that will have your back for the next four years and beyond.
+              {trailblazersApplicationsOpen
+                ? 'Applications are open to first-year students. Take the first step toward a community that will have your back for the next four years and beyond.'
+                : 'Applications are currently closed. Meet our cohort and explore the community our alumni have built.'}
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <CtaLink href="https://forms.gle/VuzoDG9v61Q3cPMv5" external variant="onDark" size="lg" withArrow>
-                Start your application
-              </CtaLink>
+              {trailblazersApplicationsOpen ? (
+                <CtaLink
+                  href={trailblazersApplicationUrl}
+                  external
+                  variant="onDark"
+                  size="lg"
+                  withArrow
+                >
+                  Start your application
+                </CtaLink>
+              ) : (
+                <CtaLink
+                  href="/programs/trailblazers/cohort"
+                  variant="onDark"
+                  size="lg"
+                  withArrow
+                >
+                  Meet the cohort
+                </CtaLink>
+              )}
               <ArrowLink
                 href="/programs/trailblazers/alumni"
                 className="text-tb-lilac hover:text-white"

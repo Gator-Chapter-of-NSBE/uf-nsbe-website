@@ -13,7 +13,6 @@ export const signInEventOptions: { id: string; label: string }[] = [
   { id: 'general-body-meeting', label: 'General Body Meeting' },
   { id: 'professional-development', label: 'Professional Development Workshop' },
   { id: 'trailblazers-session', label: 'Trailblazers Cohort Session' },
-  { id: 'design-team-meeting', label: 'Design Team Meeting' },
   { id: 'social', label: 'Social / Community Event' },
   { id: 'other', label: 'Other' },
 ]
