@@ -106,9 +106,9 @@ export const navigation: NavGroup[] = [
         description: 'Your attendance, points, and membership',
       },
       {
-        label: 'Become a Sponsor',
+        label: 'Our Sponsors',
         href: '/get-involved/sponsor',
-        description: 'Partner with UF NSBE',
+        description: 'Meet the organizations supporting our chapter',
       },
     ],
   },

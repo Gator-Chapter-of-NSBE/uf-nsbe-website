@@ -29,7 +29,7 @@ export function JoinCta() {
                 Become a member
               </CtaLink>
               <CtaLink href="/get-involved/sponsor" variant="outlineDark" size="lg">
-                Partner with us
+                Our Sponsors
               </CtaLink>
             </div>
           </div>

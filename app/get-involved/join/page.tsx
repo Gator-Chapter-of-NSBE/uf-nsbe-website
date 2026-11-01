@@ -56,23 +56,6 @@ export default function JoinPage() {
           <ArrowUpRight className="size-4" />
         </a>
       </PageHero>
-
-      <Section>
-        <Container>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((b) => (
-              <div key={b.title} className="rounded-2xl border border-border bg-card p-6">
-                <span className="grid size-11 place-items-center rounded-xl bg-nsbe-green/10 text-nsbe-green">
-                  <b.icon className="size-5" aria-hidden />
-                </span>
-                <h3 className="mt-4 font-medium text-foreground">{b.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{b.copy}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
     </>
   )
 }

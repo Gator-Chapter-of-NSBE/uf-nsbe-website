@@ -31,8 +31,8 @@ const paths = [
     tag: 'First-years',
   },
   {
-    title: 'Become a Sponsor',
-    copy: 'Companies & organizations: partner with us to reach exceptional talent.',
+    title: 'Our Sponsors',
+    copy: 'Meet the organizations supporting our chapter and investing in our members.',
     href: '/get-involved/sponsor',
     tag: 'Partners',
   },

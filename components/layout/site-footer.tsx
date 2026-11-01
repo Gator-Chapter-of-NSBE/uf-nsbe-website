@@ -44,7 +44,7 @@ const footerColumns = [
       ...(trailblazersApplicationsOpen
         ? [{ label: 'Apply to Trailblazers', href: trailblazersApplicationUrl }]
         : []),
-      { label: 'Become a Sponsor', href: '/get-involved/sponsor' },
+      { label: 'Our Sponsors', href: '/get-involved/sponsor' },
       { label: 'Contact', href: '/contact' },
     ],
   },
@@ -74,7 +74,7 @@ export function SiteFooter() {
               href="/get-involved/sponsor"
               className="group inline-flex h-11 items-center gap-2 rounded-md border border-white/25 px-6 text-sm font-medium text-white transition-colors hover:bg-white/10"
             >
-              Become a Partner
+              Our Sponsors
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

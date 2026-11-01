@@ -1,55 +1,80 @@
 import type { Metadata } from 'next'
-import { Check, Handshake, Users, Presentation, Trophy } from 'lucide-react'
+import Image from 'next/image'
 import { PageHero } from '@/components/site/page-hero'
-import { Container, Section, SectionHeading, CtaLink } from '@/components/site/primitives'
-import { site } from '@/data/site'
+import { Container, Section, CtaLink } from '@/components/site/primitives'
+import { sponsors } from '@/data/sponsors'
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Become a Sponsor',
+  title: 'Our Sponsors',
   description:
-    'Partner with UF NSBE to connect with a diverse, talented pipeline of engineering students at the University of Florida.',
+    'Thank you to the sponsors supporting the University of Florida Gator Chapter of NSBE and investing in our members.',
 }
-
-const reasons = [
-  { icon: Users, title: 'Talent pipeline', copy: 'Recruit from a motivated community of Black engineering students at a top-tier program.' },
-  { icon: Presentation, title: 'Brand visibility', copy: 'Feature your company at meetings, workshops, and chapter events throughout the year.' },
-  { icon: Trophy, title: 'Impact', copy: 'Directly support the academic and professional success of underrepresented engineers.' },
-  { icon: Handshake, title: 'Partnership', copy: 'Build a lasting relationship with a chapter of a respected national organization.' },
-]
 
 export default function SponsorPage() {
   return (
     <>
       <PageHero
         tone="dark"
-        eyebrow="Partnership"
-        title="Partner with the next generation of Black engineers"
-        description="Your support fuels programming, professional development, and community for our members — and connects your organization with exceptional emerging talent."
-      >
-        <CtaLink href={`mailto:${site.email}`} variant="onDark" external>
-          Start a conversation
-        </CtaLink>
-        <CtaLink href="/contact" variant="outlineDark">
-          Contact our board
-        </CtaLink>
-      </PageHero>
-
+        eyebrow="With gratitude"
+        title="Our Sponsors"
+        description="Thank you to the organizations supporting UF NSBE. Your partnership helps our members grow, connect, and build a stronger engineering community."
+      />
       <Section>
         <Container>
-          <SectionHeading eyebrow="Why partner" title="What your sponsorship makes possible" />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {reasons.map((r) => (
-              <div key={r.title} className="rounded-2xl border border-border bg-card p-6">
-                <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <r.icon className="size-5" aria-hidden />
-                </span>
-                <h3 className="mt-4 font-medium text-foreground">{r.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{r.copy}</p>
-              </div>
+          <ul
+            aria-label="Current sponsors"
+            className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4"
+          >
+            {sponsors.map((sponsor) => (
+              <li key={sponsor.name}>
+                <a
+                  href={sponsor.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${sponsor.name} (opens in a new tab)`}
+                  className="group block rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-4"
+                >
+                <figure>
+                  <div
+                    className={cn(
+                      'relative h-36 overflow-hidden rounded-xl border border-border transition-colors group-hover:border-nsbe-green sm:h-40',
+                      sponsor.darkBackground ? 'bg-ink' : 'bg-white',
+                    )}
+                  >
+                    <Image
+                      src={sponsor.logo}
+                      alt={`${sponsor.name} logo`}
+                      fill
+                      sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                      className="object-contain p-6 sm:p-8"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-center text-sm font-medium text-muted-foreground group-hover:text-foreground">
+                    {sponsor.name}
+                  </figcaption>
+                </figure>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </Container>
       </Section>
+      <section className="border-t border-border bg-muted/40 py-12 sm:py-16">
+        <Container className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+          <h2 className="font-serif text-2xl tracking-tight sm:text-3xl">
+            Interested in becoming a sponsor?
+          </h2>
+          <CtaLink
+            href="/contact"
+            variant="primary"
+            className="shrink-0"
+            withArrow
+          >
+            Contact our Board
+          </CtaLink>
+        </Container>
+      </section>
     </>
   )
 }
