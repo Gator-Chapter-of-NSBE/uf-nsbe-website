@@ -22,3 +22,6 @@ node_modules
 AttendanceForm*.csv
 *.tsbuildinfo
 .portal-test/
+
+# Private attendance migration review files and identity corrections
+migration-review/
