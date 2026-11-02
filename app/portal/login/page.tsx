@@ -83,7 +83,12 @@ export default async function LoginPage({
             </Link>
             <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
               Your profile and attendance are visible to you and authorized
-              chapter administrators.
+              chapter administrators. Your name and points also appear on the
+              member leaderboard. Read our{' '}
+              <Link href="/privacy" className="underline underline-offset-4">
+                privacy policy
+              </Link>{' '}
+              for details.
             </p>
           </div>
         </div>

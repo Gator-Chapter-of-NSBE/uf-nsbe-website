@@ -154,6 +154,9 @@ export function SiteFooter() {
             Chapter. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/privacy" className="transition-colors hover:text-white">
+              Privacy policy
+            </Link>
             <span>{site.location}</span>
             <a
               href={site.social.national}
