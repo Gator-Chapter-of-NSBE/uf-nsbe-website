@@ -12,6 +12,7 @@ import type {
   Semester,
 } from '@/lib/portal/types'
 import { signOut } from './actions'
+import { MembershipHistory } from '@/components/portal/membership-history'
 
 function eventDate(value: string) {
   return new Intl.DateTimeFormat('en-US', {
@@ -109,6 +110,7 @@ export default async function PortalPage({
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-5">
+            {role.data && <Link href="/portal/admin/active-members" className="text-sm font-medium underline underline-offset-4">Active members</Link>}
             {role.data && <Link href="/portal/admin/members" className="text-sm font-medium underline underline-offset-4">Manage members</Link>}
             {role.data && <Link href="/portal/admin/events" className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
             <Link
@@ -263,7 +265,11 @@ export default async function PortalPage({
         ) : (
           <EmptyState text="Your member profile is ready. Attendance and points will appear here once chapter records are available." />
         )}
+        <MembershipHistory semesters={semesters} events={events} attendance={attendance} adjustments={adjustments} />
         <div className="mt-12 flex flex-wrap gap-3">
+          <CtaLink href={selected ? `/portal/leaderboard?semester=${selected.id}` : '/portal/leaderboard'} variant="outline">
+            Points leaderboard
+          </CtaLink>
           <CtaLink href="/events" variant="outline">
             View chapter calendar
           </CtaLink>

@@ -8,6 +8,7 @@ import { summarizeSemester } from '@/lib/portal/rules'
 import type { Member, Semester, PortalEvent, Attendance, Adjustment } from '@/lib/portal/types'
 import { MemberManagementForm } from '@/components/portal/member-management-form'
 import { fieldClass } from '@/lib/check-in'
+import { MembershipHistory } from '@/components/portal/membership-history'
 
 type AdminAdjustment = Adjustment & { created_by: string | null }
 type Correction = { id: string; event_id: string; action: string; reason: string; actor_email: string; created_at: string }
@@ -61,5 +62,6 @@ export default async function MemberDetailPage({ params, searchParams }: {
       <ul className="mt-6 space-y-3">{adjustments.filter(a => a.semester_id === selected?.id).map(a => <li key={a.id} className="rounded-xl border p-5"><p className="break-words font-medium">{a.points>0 ? '+' : ''}{a.points} · {a.reason}</p><p className="mt-2 break-all text-xs text-muted-foreground">{date(a.created_at)} · {a.created_by ? authors.get(a.created_by) ?? 'Former chapter administrator' : 'Imported or former administrator'}</p></li>)}</ul>
     </section>
     <section className="mt-10"><h2 className="font-serif text-2xl">Attendance correction history</h2><p className="mt-2 text-xs text-muted-foreground">Latest 100 corrections across all semesters.</p><ul className="mt-4 space-y-3">{audit.map(a => <li key={a.id} className="rounded-xl border p-5"><p className="font-medium">{a.action==='add' ? 'Added' : 'Removed'}: {events.find(e => e.id===a.event_id)?.title ?? 'Event'}</p><p className="mt-2 break-words text-sm">{a.reason}</p><p className="mt-2 break-all text-xs text-muted-foreground">{date(a.created_at)} · {a.actor_email}</p></li>)}</ul>{!audit.length && <p className="mt-4 text-sm text-muted-foreground">No attendance corrections recorded.</p>}</section>
+    <MembershipHistory semesters={semesters} events={events} attendance={attendance} adjustments={adjustments} />
   </Container></Section>
 }

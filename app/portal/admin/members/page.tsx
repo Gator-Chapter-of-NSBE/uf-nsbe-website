@@ -13,6 +13,7 @@ export default async function AdminMembersPage({ searchParams }: { searchParams:
   const href = (p: number) => `/portal/admin/members?${new URLSearchParams({ q: query, page: String(p) })}`
   return <Section className="pt-10"><Container className="max-w-4xl">
     <Link href="/portal" className="text-sm underline underline-offset-4">Back to dashboard</Link>
+    <Link href="/portal/admin/active-members" className="ml-5 text-sm underline underline-offset-4">Active members & CSV export</Link>
     <p className="eyebrow mt-8">Chapter administration</p><h1 className="mt-3 font-serif text-4xl">Member management</h1>
     <p className="mt-4 text-muted-foreground">Review member points, correct attendance, and record bonuses or deductions.</p>
     <form className="mt-8 flex flex-wrap gap-3"><label className="min-w-0 flex-1"><span className="sr-only">Search by name or UF email</span><input name="q" defaultValue={query} maxLength={120} placeholder="Search by name or UF email" className={fieldClass} /></label><button className={buttonClass}>Search</button></form>

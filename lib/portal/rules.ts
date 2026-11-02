@@ -47,3 +47,13 @@ export function summarizeSemester(
     active: gbms >= 2 && qualifyingEvents >= 3,
   }
 }
+
+export function membershipHistory(semesters: Semester[], events: PortalEvent[], attendance: Attendance[], adjustments: Adjustment[]) {
+  const terms = [...semesters].sort((a,b) => b.starts_on.localeCompare(a.starts_on)).map(semester => ({
+    semester, ...summarizeSemester(semester,events,attendance,adjustments),
+    hasRecords: attendance.some(a => events.some(e => e.id===a.event_id && e.semester_id===semester.id)) || adjustments.some(a => a.semester_id===semester.id),
+  }))
+  const attendedIds = new Set(attendance.map(a => a.event_id))
+  const firstAttendance = events.filter(e => attendedIds.has(e.id)).map(e => e.starts_at).sort((a,b) => Date.parse(a)-Date.parse(b))[0] ?? null
+  return { terms, firstAttendance, activeSemesters: terms.filter(t => t.active).length, lifetimePoints: terms.reduce((sum,t) => sum+t.points,0) }
+}

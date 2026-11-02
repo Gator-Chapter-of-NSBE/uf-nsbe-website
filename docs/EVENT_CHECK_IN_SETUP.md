@@ -26,8 +26,9 @@ are sufficient.
    row and one points award in the portal. An incomplete member profile must be
    completed before viewing the dashboard.
 6. Close check-in from the admin page and confirm the event disappears from the
-   public selector. Close the old Google Form to responses after confirming the
-   new flow works. Reconcile any responses received since the October 31 export.
+   public selector. Keep the old Google Form as an emergency fallback with a warning
+   that it is no longer the normal check-in method. Its responses do not sync to
+   the portal; reconcile any fallback responses manually.
 
 Admins can close an event early, reopen it, or rotate its password. Automatic
 expiry options are 1, 4, 12, or 24 hours from opening. Late arrivals earn the same

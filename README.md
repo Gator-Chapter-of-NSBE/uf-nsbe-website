@@ -176,6 +176,7 @@ For a working portal, follow [`docs/MEMBER_PORTAL_SETUP.md`](docs/MEMBER_PORTAL_
 | `npm run dev` | Development server |
 | `npm run typecheck` | Check TypeScript independently of the Next.js build |
 | `npm run test:portal` | Compile portal rules into `.portal-test/` and run Node rule tests |
+| `npm run test:reporting` | Check membership history, CSV handling, export authorization and complete pagination |
 | `npm run build` | Create a production Next.js build |
 | `npm start` | Serve the production build |
 | `npm run lint` | Calls `eslint .`; ESLint and its configuration are not currently supplied in this repository |
@@ -199,6 +200,8 @@ For common changes:
 - Add schema/permission changes as new migrations, keeping SQL constraints, TypeScript types, rules, and checks aligned.
 
 The portal includes authentication, profiles, the attendance/points dashboard, calendar-based admin event setup, and public password check-in. Follow [event check-in setup](docs/EVENT_CHECK_IN_SETUP.md) to apply the database migration before deploying the replacement `/sign-in` form. Admins manage events at `/portal/admin/events` and search members, correct attendance, and record point adjustments at `/portal/admin/members`; see [member management setup](docs/ADMIN_MEMBER_MANAGEMENT.md) for its migration. Public submissions populate attendance immediately without requiring login. The Fall 2026 migration is documented in [attendance import](docs/ATTENDANCE_IMPORT.md). Attendance exports contain personal information: keep them out of `public/` and source control; `AttendanceForm*.csv` and `migration-review/` are ignored. Back up records before imports or policy changes.
+
+Membership history appears on the member dashboard and admin member detail pages. The semester leaderboard is at `/portal/leaderboard`, and admins can view and export active members at `/portal/admin/active-members`. Apply the reporting migration before using these reports; see [member reporting setup](docs/MEMBER_REPORTING.md).
 
 The site was originally bootstrapped with [v0](https://v0.app). The linked [v0 project](https://v0.app/chat/projects/prj_H6269MqjsMRn0VUz9nUwvIE1EVQq) remains an optional development entry point; deployment behavior depends on the configured repository/hosting integration.
 
