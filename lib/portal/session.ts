@@ -28,3 +28,10 @@ export async function requireMember() {
     )
   return { supabase, member: data as Member }
 }
+
+export async function requireAdmin() {
+  const context = await requireMember()
+  const { data, error } = await context.supabase.rpc('is_portal_admin')
+  if (error || data !== true) redirect('/portal')
+  return context
+}

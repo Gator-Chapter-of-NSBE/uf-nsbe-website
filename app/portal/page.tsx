@@ -108,7 +108,9 @@ export default async function PortalPage({
               Your involvement in the Gator Chapter, one event at a time.
             </p>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center gap-5">
+            {role.data && <Link href="/portal/admin/members" className="text-sm font-medium underline underline-offset-4">Manage members</Link>}
+            {role.data && <Link href="/portal/admin/events" className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
             <Link
               href="/portal/profile"
               className="text-sm font-medium underline underline-offset-4"

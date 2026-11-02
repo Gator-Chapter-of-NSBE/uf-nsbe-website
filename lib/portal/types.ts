@@ -24,7 +24,7 @@ export type PortalEvent = {
   title: string
   starts_at: string
   category: 'general' | 'gbm' | 'external'
-  zone: string
+  zone: string | null
   base_points: number
 }
 
