@@ -1,4 +1,4 @@
-﻿# UF NSBE website
+﻿# UF NSBE website 
 
 Public website and member portal for the University of Florida Gator Chapter of the National Society of Black Engineers, at **https://ufnsbe.org**.
 
