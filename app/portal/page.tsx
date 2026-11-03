@@ -15,6 +15,7 @@ import { signOut } from './actions'
 import { MembershipHistory } from '@/components/portal/membership-history'
 import { EboardAccessPanel } from '@/components/portal/eboard-access-panel'
 import { AdminAccountsPanel } from '@/components/portal/admin-accounts-panel'
+import { TrailblazersAttendance } from '@/components/portal/trailblazers-attendance'
 
 function eventDate(value: string) {
   return new Intl.DateTimeFormat('en-US', {
@@ -270,6 +271,7 @@ export default async function PortalPage({
         ) : (
           <EmptyState text="Your member profile is ready. Attendance and points will appear here once chapter records are available." />
         )}
+        <TrailblazersAttendance events={events} attendance={attendance} semester={selected?.id} />
         <MembershipHistory semesters={semesters} events={events} attendance={attendance} adjustments={adjustments} />
         {role.data && <EboardAccessPanel supabase={supabase} search={query.role_search} page={query.role_page} semester={selected?.id} />}
         {role.data && <AdminAccountsPanel supabase={supabase} />}

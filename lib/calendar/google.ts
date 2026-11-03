@@ -1,5 +1,5 @@
 import 'server-only'
-import { chapterCalendarId } from '../../data/calendar'
+import { chapterCalendarId, trailblazersCalendarId, isTrailblazersMeeting, type CheckInCalendarSource } from '../../data/calendar'
 import { normalizeEvent, type CalendarEvent, type GoogleEvent } from './events'
 
 export type CalendarResult = {
@@ -79,4 +79,10 @@ export function getCalendarEvents() {
     apiKey: process.env.GOOGLE_CALENDAR_API_KEY,
     calendarId: process.env.GOOGLE_CALENDAR_ID?.trim() || chapterCalendarId,
   })
+}
+
+export async function getCheckInCalendarEvents(source: CheckInCalendarSource) {
+  if (source === 'chapter') return getCalendarEvents()
+  const result = await fetchCalendarEvents({ apiKey: process.env.GOOGLE_CALENDAR_API_KEY, calendarId: trailblazersCalendarId })
+  return { ...result, events: result.events.filter(event => isTrailblazersMeeting(event.title)) }
 }

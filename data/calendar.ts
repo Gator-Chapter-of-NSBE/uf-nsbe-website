@@ -1,6 +1,10 @@
 export const chapterCalendarId =
   'f302577e7295658f178b08e8f89c746a0996ac9cd8b21b8194d5959b86cf040f@group.calendar.google.com'
 
+export const trailblazersCalendarId = 'vpresident.ufnsbe@gmail.com'
+export type CheckInCalendarSource = 'chapter' | 'trailblazers'
+export const isTrailblazersMeeting = (title: string) => /trailblazers/i.test(title)
+
 export function calendarLinks(calendarId: string) {
   const id = encodeURIComponent(calendarId)
   return {

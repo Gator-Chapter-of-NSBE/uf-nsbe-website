@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { requireEventManager } from '@/lib/portal/session'
-import { getCalendarEvents } from '@/lib/calendar/google'
+import { getCheckInCalendarEvents } from '@/lib/calendar/google'
 import { zones } from '@/lib/check-in'
 
 export type AdminState = { error?: string; success?: string }
@@ -10,14 +10,16 @@ export type AdminState = { error?: string; success?: string }
 export async function openCheckIn(_state: AdminState, form: FormData): Promise<AdminState> {
   const { supabase } = await requireEventManager()
   const value = (key: string) => String(form.get(key) ?? '').trim()
-  const calendar = await getCalendarEvents()
+  const source = value('source') || 'chapter'
+  if (source !== 'chapter' && source !== 'trailblazers') return { error: 'Select a valid calendar source.' }
+  const calendar = await getCheckInCalendarEvents(source)
   const event = calendar.events.find(e => e.id === value('calendar_event'))
   if (calendar.status !== 'ready' || !event) return { error: 'This calendar event is unavailable. Refresh the page and select it again.' }
-  const category = value('category')
+  const category = source === 'trailblazers' ? 'trailblazers' : value('category')
   const zone = value('zone')
   const password = String(form.get('password') ?? '')
   const hours = Number(value('hours'))
-  if (!['general','gbm','external'].includes(category) || (zone && !zones.some(z => z === zone)) || ![1,4,12,24].includes(hours))
+  if (!(source === 'trailblazers' || ['general','gbm','external'].includes(category)) || (zone && !zones.some(z => z === zone)) || ![1,4,12,24].includes(hours))
     return { error: 'Select a category, zone, and check-in duration.' }
   if (password && (password.length < 6 || Buffer.byteLength(password) > 72)) return { error: 'Use a password of at least 6 characters and at most 72 bytes.' }
   const semester = value('semester')

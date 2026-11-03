@@ -4,16 +4,18 @@ import { useActionState } from 'react'
 import { openCheckIn, closeCheckIn, reopenCheckIn } from '@/app/portal/admin/events/actions'
 import { fieldClass, buttonClass, zones } from '@/lib/check-in'
 import type { Semester } from '@/lib/portal/types'
+import type { CheckInCalendarSource } from '@/data/calendar'
 
-export function AdminEventForm({ events, semesters }: {
-  events: { id: string; title: string; day: string }[]; semesters: Semester[]
+export function AdminEventForm({ events, semesters, source = 'chapter' }: {
+  events: { id: string; title: string; day: string }[]; semesters: Semester[]; source?: CheckInCalendarSource
 }) {
   const [state, action, pending] = useActionState(openCheckIn, {})
   return <form action={action} className="mt-6 space-y-5 rounded-xl border p-6">
+    <input type="hidden" name="source" value={source} />
     <div><label htmlFor="calendar_event" className="mb-2 block text-sm font-medium">Google Calendar event</label><select id="calendar_event" name="calendar_event" className={fieldClass} required defaultValue=""><option value="" disabled>Select an event</option>{events.map(e => <option key={e.id} value={e.id}>{e.day} — {e.title}</option>)}</select></div>
     <div className="grid gap-5 sm:grid-cols-2">
       <div><label htmlFor="semester" className="mb-2 block text-sm font-medium">Semester</label><select id="semester" name="semester" className={fieldClass} required defaultValue=""><option value="" disabled>Select semester</option>{semesters.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}</select></div>
-      <div><label htmlFor="category" className="mb-2 block text-sm font-medium">Category</label><select id="category" name="category" className={fieldClass}><option value="general">General event — 5 points</option><option value="gbm">GBM — 10 points</option><option value="external">External event — 15 points</option></select></div>
+      {source === 'trailblazers' ? <div><p className="mb-2 text-sm font-medium">Attendance type</p><p className="text-sm">Trailblazers — attendance only</p><p className="mt-2 text-xs text-muted-foreground">Zero points. Does not count toward active membership or chapter attendance bonuses.</p></div> : <div><label htmlFor="category" className="mb-2 block text-sm font-medium">Category</label><select id="category" name="category" className={fieldClass}><option value="general">General event — 5 points</option><option value="gbm">GBM — 10 points</option><option value="external">External event — 15 points</option></select></div>}
       <div><label htmlFor="zone" className="mb-2 block text-sm font-medium">Zone (optional)</label><select id="zone" name="zone" className={fieldClass}><option value="">Unassigned</option>{zones.map(z => <option key={z}>{z}</option>)}</select></div>
       <div><label htmlFor="hours" className="mb-2 block text-sm font-medium">Close check-in after</label><select id="hours" name="hours" className={fieldClass} defaultValue="4">{[1,4,12,24].map(h => <option key={h} value={h}>{h} hour{h === 1 ? '' : 's'}</option>)}</select></div>
     </div>

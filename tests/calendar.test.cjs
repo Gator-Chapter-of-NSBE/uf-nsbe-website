@@ -29,6 +29,28 @@ vm.runInNewContext(fs.readFileSync(compiled, 'utf8'), {
   Set,
 })
 const { fetchCalendarEvents } = serverModule.exports
+
+test('Trailblazers source excludes CEB titles and never changes the public chapter calendar source', async()=>{
+  const calls=[]
+  const module={exports:{}}
+  vm.runInNewContext(fs.readFileSync(compiled,'utf8'),{
+    module,exports:module.exports,require:id=>id==='server-only'?{}:localRequire(id),
+    Date,URL,URLSearchParams,AbortSignal,Map,Set,
+    process:{env:{GOOGLE_CALENDAR_API_KEY:'test-only-key'}},
+    fetch:async url=>{
+      calls.push(new URL(url))
+      return {ok:true,json:async()=>({items:['Trailblazers Meeting','CEB Meeting','Sunday CEB','trailblazers workshop'].map((summary,i)=>({id:String(i),summary,start:{dateTime:'2099-11-05T18:00:00-05:00'},end:{dateTime:'2099-11-05T19:00:00-05:00'}}))})}
+    },
+  })
+  const result=await module.exports.getCheckInCalendarEvents('trailblazers')
+  assert.equal(result.status,'ready')
+  assert.equal(result.events.length,2)
+  assert.ok(result.events.every(e=>/trailblazers/i.test(e.title)))
+  assert.equal(result.calendarId,'vpresident.ufnsbe@gmail.com')
+  await module.exports.getCalendarEvents()
+  assert.ok(calls[0].pathname.includes(encodeURIComponent('vpresident.ufnsbe@gmail.com')))
+  assert.ok(!calls[1].pathname.includes('vpresident.ufnsbe'))
+})
 const now = new Date('2026-11-01T06:00:00Z')
 const event = (id = 'meeting') => ({
   id,

@@ -103,3 +103,12 @@ test('explicit positive and negative admin adjustments affect points, not attend
   assert.equal(result.active, false)
   assert.equal(result.qualifyingEvents, 0)
 })
+
+test('Trailblazers attendance cannot award points or satisfy chapter membership even with a malformed points value', () => {
+  const events = [event('g1','gbm'),event('g2','gbm'),event('a'),event('b'),{...event('tb','trailblazers'),base_points:999}]
+  const summary = summarizeSemester(term,events,attend(...events.map(e=>e.id)),[])
+  assert.equal(summary.basePoints,30)
+  assert.equal(summary.qualifyingEvents,2)
+  assert.equal(summary.active,false)
+  assert.equal(summary.attended.length,4)
+})

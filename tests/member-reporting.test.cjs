@@ -55,6 +55,17 @@ function route({ user=true,admin=true,rows=[],failed=false,term=true }={}) {
   }).GET
 }
 const request = (id='90000000-0000-0000-0000-000000000001') => new NextRequest(`http://localhost/portal/admin/active-members/export?semester=${id}`)
+test('program-only attendance does not create chapter membership history or move the chapter joining date',()=>{
+  const term={id:'fall',starts_on:'2026-08-01'}
+  const trail={id:'tb',semester_id:'fall',starts_at:'2026-08-01T18:00:00Z',category:'trailblazers',base_points:0}
+  const chapter={id:'gbm',semester_id:'fall',starts_at:'2026-09-01T18:00:00Z',category:'gbm',base_points:10}
+  const only=membershipHistory([term],[trail],[{event_id:'tb'}],[])
+  assert.equal(only.firstAttendance,null)
+  assert.equal(only.terms[0].hasRecords,false)
+  const both=membershipHistory([term],[trail,chapter],[{event_id:'tb'},{event_id:'gbm'}],[])
+  assert.equal(both.firstAttendance,chapter.starts_at)
+  assert.equal(both.lifetimePoints,10)
+})
 test('export rejects unauthenticated, non-admin, invalid and unknown semester requests',async()=>{
   for(const [options,id,status] of [[{user:false},undefined,401],[{admin:false},undefined,403],[{},'bad',400],[{term:false},undefined,404],[{failed:true},undefined,503]]) {
     const response = await route(options)(request(id))

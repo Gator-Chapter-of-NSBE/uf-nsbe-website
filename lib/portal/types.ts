@@ -23,7 +23,7 @@ export type PortalEvent = {
   semester_id: string
   title: string
   starts_at: string
-  category: 'general' | 'gbm' | 'external'
+  category: 'general' | 'gbm' | 'external' | 'trailblazers'
   zone: string | null
   base_points: number
 }
