@@ -35,3 +35,12 @@ export async function requireAdmin() {
   if (error || data !== true) redirect('/portal')
   return context
 }
+
+export async function requireEventManager() {
+  const context = await requireMember()
+  const { data, error } = await context.supabase.rpc('can_manage_event_check_ins')
+  if (error || data !== true) redirect('/portal')
+  const { data: admin, error: roleError } = await context.supabase.rpc('is_portal_admin')
+  if (roleError) throw new Error('Member role could not be loaded.')
+  return { ...context, isAdmin: admin === true }
+}

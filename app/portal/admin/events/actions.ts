@@ -1,14 +1,14 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { requireAdmin } from '@/lib/portal/session'
+import { requireEventManager } from '@/lib/portal/session'
 import { getCalendarEvents } from '@/lib/calendar/google'
 import { zones } from '@/lib/check-in'
 
 export type AdminState = { error?: string; success?: string }
 
 export async function openCheckIn(_state: AdminState, form: FormData): Promise<AdminState> {
-  const { supabase } = await requireAdmin()
+  const { supabase } = await requireEventManager()
   const value = (key: string) => String(form.get(key) ?? '').trim()
   const calendar = await getCalendarEvents()
   const event = calendar.events.find(e => e.id === value('calendar_event'))
@@ -42,7 +42,7 @@ export async function openCheckIn(_state: AdminState, form: FormData): Promise<A
 }
 
 export async function closeCheckIn(_state: AdminState, form: FormData): Promise<AdminState> {
-  const { supabase } = await requireAdmin()
+  const { supabase } = await requireEventManager()
   const id = String(form.get('event') ?? '')
   if (!/^[0-9a-f-]{36}$/i.test(id)) return { error: 'Select a valid event.' }
   const { error } = await supabase.rpc('close_event_check_in', { p_event: id })
@@ -53,7 +53,7 @@ export async function closeCheckIn(_state: AdminState, form: FormData): Promise<
 }
 
 export async function reopenCheckIn(_state: AdminState, form: FormData): Promise<AdminState> {
-  const { supabase } = await requireAdmin()
+  const { supabase } = await requireEventManager()
   const id = String(form.get('event') ?? '')
   const password = String(form.get('password') ?? '')
   const hours = Number(form.get('hours'))

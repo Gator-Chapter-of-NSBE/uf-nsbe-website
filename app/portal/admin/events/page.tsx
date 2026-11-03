@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Container, Section } from '@/components/site/primitives'
-import { requireAdmin } from '@/lib/portal/session'
+import { requireEventManager } from '@/lib/portal/session'
 import { readAll } from '@/lib/portal/read-all'
 import { getCalendarEvents } from '@/lib/calendar/google'
 import { eventDay } from '@/lib/calendar/events'
@@ -8,7 +8,7 @@ import type { PortalEvent, Semester } from '@/lib/portal/types'
 import { AdminEventForm, CloseCheckInForm, ReopenCheckInForm } from '@/components/events/admin-event-form'
 
 export default async function AdminEventsPage() {
-  const { supabase } = await requireAdmin()
+  const { supabase, isAdmin } = await requireEventManager()
   const [calendar, semesters, events, settings] = await Promise.all([
     getCalendarEvents(),
     readAll<Semester>((from,to) => supabase.from('semesters').select('*').order('starts_on', { ascending: false }).range(from,to)),
@@ -19,8 +19,8 @@ export default async function AdminEventsPage() {
   const date = (value: string) => new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'America/New_York' }).format(new Date(value))
   return <Section className="pt-10"><Container className="max-w-3xl">
     <Link href="/portal" className="text-sm underline underline-offset-4">Back to dashboard</Link>
-    <Link href="/portal/admin/members" className="ml-5 text-sm underline underline-offset-4">Manage members</Link>
-    <p className="eyebrow mt-8">Chapter administration</p><h1 className="mt-3 font-serif text-4xl">Event check-in</h1>
+    {isAdmin && <Link href="/portal/admin/members" className="ml-5 text-sm underline underline-offset-4">Manage members</Link>}
+    <p className="eyebrow mt-8">{isAdmin ? 'Chapter administration' : 'E-board event management'}</p><h1 className="mt-3 font-serif text-4xl">Event check-in</h1>
     <p className="mt-4 text-muted-foreground">Select a calendar event and open check-in when you’re ready. Members use the existing QR code to visit <Link href="/sign-in" className="underline">/sign-in</Link>. Late arrivals can check in while the event remains open. All times are Gainesville time.</p>
     {settings.error ? <p role="alert" className="mt-6 rounded-xl border p-5">Event check-in is not available yet. Run the event check-in database migration before using this page.</p> : <>
       {calendar.status !== 'ready' ? <p role="alert" className="mt-6 rounded-xl border p-5">Google Calendar is unavailable. Existing open events still accept check-ins. Try again shortly.</p> : !semesters.length ? <p className="mt-6">Create the semester in Supabase before opening events.</p> : !calendar.events.length ? <p className="mt-6">No upcoming calendar events were found.</p> : <AdminEventForm events={calendar.events.map(e => ({ id: e.id, title: e.title, day: eventDay(e) }))} semesters={semesters} />}

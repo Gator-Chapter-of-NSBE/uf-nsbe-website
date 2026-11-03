@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <Container className="max-w-3xl">
         <p className="eyebrow">UF NSBE</p>
         <h1 className="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Privacy policy</h1>
-        <p className="mt-4 text-sm text-muted-foreground">Effective November 1, 2026 · Last updated November 1, 2026</p>
+        <p className="mt-4 text-sm text-muted-foreground">Effective November 1, 2026 · Last updated November 2, 2026</p>
         <p className="mt-6 leading-relaxed text-muted-foreground">
           The University of Florida Gator Chapter of the National Society of Black Engineers
           (UF NSBE) operates ufnsbe.org. This policy explains how we handle information
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
             <ul className="list-disc space-y-3 pl-5">
               <li><strong className="text-foreground">Account information:</strong> when you sign in with Google, our authentication provider receives your account identifier, email address, verification information, and basic profile information Google provides, such as your name and profile photo. Portal access requires a verified UF email and Google identity.</li>
               <li><strong className="text-foreground">Member profiles:</strong> your name, UF email, major, and school year, plus your NSBE ID and UFID if you choose to provide them. NSBE ID and UFID are optional.</li>
-              <li><strong className="text-foreground">Chapter participation:</strong> event attendance, submission times, points, bonuses, membership eligibility, and administrative corrections with their reasons and authors. This includes historical attendance imported from chapter forms.</li>
+              <li><strong className="text-foreground">Chapter participation:</strong> event attendance, submission times, points, bonuses, membership eligibility, and administrative corrections with their reasons and authors. We also record E-board access assignments and revocations, including the member, administrator, and time of each change. This includes historical attendance imported from chapter forms.</li>
               <li><strong className="text-foreground">Messages and subscriptions:</strong> information you submit through our contact form, such as your name, email, organization, topic, and message; and information you provide when subscribing to our newsletter or completing a linked chapter form.</li>
               <li><strong className="text-foreground">Technical information:</strong> authentication cookies that keep you signed in, website usage measurements, and operational or security logs processed by our service providers. These may include device, browser, request, and network information.</li>
             </ul>
@@ -42,6 +42,7 @@ export default function PrivacyPage() {
 
           <PolicySection title="Who can see chapter records">
             <p>Members can view their own profile, attendance, points, and membership history. Authorized chapter administrators can access member records, correct attendance, record point adjustments, and export active-member lists containing names, UF emails, attendance counts, and points.</p>
+            <p className="mt-3">Authorized E-board members can manage event check-in settings and passwords. This role does not give access to other members’ profiles, attendance histories, point adjustments, active-member exports, or role-assignment history.</p>
             <p className="mt-3">The points leaderboard is visible to signed-in UF portal users. It displays participating members’ names, points, and ranks, including members whose attendance was recorded before they first logged into the portal. It does not display emails, UFIDs, NSBE IDs, or individual attendance histories.</p>
             <p className="mt-3">We do not sell member personal information. We may also disclose information when required by applicable law or when needed to address misuse, protect users, or secure chapter services.</p>
           </PolicySection>

@@ -13,6 +13,8 @@ import type {
 } from '@/lib/portal/types'
 import { signOut } from './actions'
 import { MembershipHistory } from '@/components/portal/membership-history'
+import { EboardAccessPanel } from '@/components/portal/eboard-access-panel'
+import { AdminAccountsPanel } from '@/components/portal/admin-accounts-panel'
 
 function eventDate(value: string) {
   return new Intl.DateTimeFormat('en-US', {
@@ -24,12 +26,12 @@ function eventDate(value: string) {
 export default async function PortalPage({
   searchParams,
 }: {
-  searchParams: Promise<{ semester?: string; profile?: string }>
+  searchParams: Promise<{ semester?: string; profile?: string; role_search?: string; role_page?: string }>
 }) {
   const { supabase, member } = await requireMember()
   if (!member.profile_completed_at) redirect('/portal/profile')
   const query = await searchParams
-  const [semesters, events, attendance, adjustments, role] = await Promise.all([
+  const [semesters, events, attendance, adjustments, role, eventAccess] = await Promise.all([
     readAll<Semester>((from, to) =>
       supabase
         .from('semesters')
@@ -67,6 +69,7 @@ export default async function PortalPage({
       .select('member_id')
       .eq('member_id', member.id)
       .maybeSingle(),
+    supabase.rpc('can_manage_event_check_ins'),
   ])
   if (role.error) throw new Error('Member role could not be loaded.')
   const today = new Intl.DateTimeFormat('en-CA', {
@@ -100,7 +103,7 @@ export default async function PortalPage({
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
             <p className="eyebrow">
-              Member portal{role.data ? ' / Chapter administrator' : ''}
+              Member portal{role.data ? ' / Chapter administrator' : eventAccess.data ? ' / E-board' : ''}
             </p>
             <h1 className="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">
               Welcome, {member.full_name.split(' ')[0]}.
@@ -112,7 +115,9 @@ export default async function PortalPage({
           <div className="flex flex-wrap items-center gap-5">
             {role.data && <Link href="/portal/admin/active-members" className="text-sm font-medium underline underline-offset-4">Active members</Link>}
             {role.data && <Link href="/portal/admin/members" className="text-sm font-medium underline underline-offset-4">Manage members</Link>}
-            {role.data && <Link href="/portal/admin/events" className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
+            {(role.data || eventAccess.data === true) && <Link href="/portal/admin/events" className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
+            {role.data && <a href="#eboard-access" className="text-sm font-medium underline underline-offset-4">E-board access</a>}
+            {role.data && <a href="#admin-accounts" className="text-sm font-medium underline underline-offset-4">Admin accounts</a>}
             <Link
               href="/portal/profile"
               className="text-sm font-medium underline underline-offset-4"
@@ -266,6 +271,8 @@ export default async function PortalPage({
           <EmptyState text="Your member profile is ready. Attendance and points will appear here once chapter records are available." />
         )}
         <MembershipHistory semesters={semesters} events={events} attendance={attendance} adjustments={adjustments} />
+        {role.data && <EboardAccessPanel supabase={supabase} search={query.role_search} page={query.role_page} semester={selected?.id} />}
+        {role.data && <AdminAccountsPanel supabase={supabase} />}
         <div className="mt-12 flex flex-wrap gap-3">
           <CtaLink href={selected ? `/portal/leaderboard?semester=${selected.id}` : '/portal/leaderboard'} variant="outline">
             Points leaderboard
