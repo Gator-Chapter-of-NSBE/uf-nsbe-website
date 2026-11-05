@@ -116,6 +116,7 @@ export default async function PortalPage({
           <div className="flex flex-wrap items-center gap-5">
             {role.data && <Link href="/portal/admin/active-members" className="text-sm font-medium underline underline-offset-4">Active members</Link>}
             {role.data && <Link href="/portal/admin/members" className="text-sm font-medium underline underline-offset-4">Manage members</Link>}
+            {role.data && <Link href="/portal/admin/previous-events" className="text-sm font-medium underline underline-offset-4">Manage previous events</Link>}
             {(role.data || eventAccess.data === true) && <Link href="/portal/admin/events" className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
             {role.data && <a href="#eboard-access" className="text-sm font-medium underline underline-offset-4">E-board access</a>}
             {role.data && <a href="#admin-accounts" className="text-sm font-medium underline underline-offset-4">Admin accounts</a>}

@@ -45,5 +45,9 @@ export async function manageMember(_previous: ManagementState, form: FormData): 
   revalidatePath('/portal')
   revalidatePath('/portal/admin/members')
   revalidatePath(`/portal/admin/members/${member}`)
+  if (operation !== 'points') {
+    revalidatePath('/portal/admin/previous-events')
+    revalidatePath(`/portal/admin/previous-events/${value('event')}`)
+  }
   return { success: unchanged ? 'Attendance already matches this request. No change was made.' : 'Saved. Member records and totals have been refreshed.' }
 }

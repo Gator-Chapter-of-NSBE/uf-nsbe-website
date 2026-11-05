@@ -207,5 +207,7 @@ Administrators can grant/revoke E-board roles directly on the dashboard. E-board
 
 Event managers can also select the separate Trailblazers calendar. Only titles containing Trailblazers are offered; those meetings record attendance without points, chapter membership credit, or leaderboard participation. See [Trailblazers check-in setup](docs/TRAILBLAZERS_CHECK_IN.md) for the required migration.
 
+Admins can use **Manage previous events** at `/portal/admin/previous-events` to review attendee counts and rosters, add/remove attendance with an audit trail, and filter by semester or type. It uses only database records and remains admin-only. See [previous-event management setup](docs/PREVIOUS_EVENTS.md) for its migration.
+
 The site was originally bootstrapped with [v0](https://v0.app). The linked [v0 project](https://v0.app/chat/projects/prj_H6269MqjsMRn0VUz9nUwvIE1EVQq) remains an optional development entry point; deployment behavior depends on the configured repository/hosting integration.
 

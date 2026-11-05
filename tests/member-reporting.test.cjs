@@ -6,6 +6,39 @@ const ts = require('typescript')
 const { NextRequest } = require('next/server')
 const { membershipHistory } = require('../.portal-test/reporting/rules.js')
 const { activeMembersCsv } = require('../.portal-test/reporting/reporting.js')
+const { filterAttendees, parsePage, paginationPages } = require('../.portal-test/reporting/event-attendance.js')
+
+test('pagination windows include boundaries/current page, ellipses and single-gap page buttons',()=>{
+  assert.deepEqual(paginationPages(1,0),[])
+  assert.deepEqual(paginationPages(3,5),[1,2,3,4,5])
+  assert.deepEqual(paginationPages(1,20),[1,2,3,4,'ellipsis',20])
+  assert.deepEqual(paginationPages(4,20),[1,2,3,4,5,'ellipsis',20])
+  assert.deepEqual(paginationPages(10,20),[1,'ellipsis',9,10,11,'ellipsis',20])
+  assert.deepEqual(paginationPages(20,20),[1,'ellipsis',17,18,19,20])
+  for(let total=1;total<=50;total++)for(let page=1;page<=total;page++) {
+    const window=paginationPages(page,total),numbers=window.filter(n=>typeof n==='number')
+    assert.ok(numbers.includes(page))
+    assert.equal(numbers[0],1)
+    assert.equal(numbers[numbers.length-1],total)
+    assert.equal(new Set(numbers).size,numbers.length)
+    assert.ok(window.length<=7)
+  }
+})
+
+test('page input rejects malformed values and stays within PostgreSQL integer bounds',()=>{
+  for(const value of [undefined,'','-2','0','3.5','1e2','abc'])assert.equal(parsePage(value),1)
+  assert.equal(parsePage('0002'),2)
+  assert.equal(parsePage('9999999999999999999999999'),2147483647)
+})
+
+test('event roster search matches names and emails literally and keeps alphabetical order',()=>{
+  const rows=[{id:'b',member:{full_name:'Zoe Member',email:'zoe@ufl.edu'}},{id:'a',member:{full_name:'Amy Member',email:'amy@ufl.edu'}},{id:'c',member:null}]
+  assert.deepEqual(filterAttendees(rows,'MEMBER').map(r=>r.id),['a','b'])
+  assert.deepEqual(filterAttendees(rows,' ZOE@UFL.EDU ').map(r=>r.id),['b'])
+  assert.equal(filterAttendees(rows,'%_').length,0)
+  assert.equal(rows[0].id,'b')
+  assert.equal(filterAttendees(rows,'').length,3)
+})
 
 test('membership history uses event dates, preserves semester scope and recalculates after corrections', () => {
   const terms = [{id:'a',starts_on:'2026-08-01',external_counts_for_membership:false},{id:'b',starts_on:'2027-01-01',external_counts_for_membership:false}]
@@ -37,11 +70,41 @@ test('CSV escapes quotes, commas and newlines; neutralizes formulas and retains 
 
 function loadTs(file, overrides) {
   const module = {exports:{}}
-  const code = ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText
-  vm.runInNewContext(code,{module,exports:module.exports,require(id){return Object.hasOwn(overrides,id)?overrides[id]:require(id)}},{filename:file})
+  const code = ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX}}).outputText
+  vm.runInNewContext(code,{module,exports:module.exports,URLSearchParams,require(id){return Object.hasOwn(overrides,id)?overrides[id]:require(id)}},{filename:file})
   return module.exports
 }
 const {readAll} = loadTs('lib/portal/read-all.ts',{'server-only':{}})
+
+test('stale event pages redirect to a valid page while preserving search and filters',async()=>{
+  const calls=[]
+  const client={
+    from(){return {select(){return this},order(){return this},range:async()=>({data:[{id:'term',name:'Fall'}],error:null})}},
+    rpc:async(name,args)=>{calls.push(args);return {data:args.p_page===1?[{total_count:31}]:[],error:null}},
+  }
+  const {default:Page}=loadTs('app/portal/admin/previous-events/page.tsx',{
+    'next/navigation':{redirect(url){throw new Error(`REDIRECT:${url}`)}},
+    '@/lib/portal/session':{requireAdmin:async()=>({supabase:client})},
+    '@/lib/portal/read-all':{readAll},
+    '@/lib/portal/event-attendance':require('../.portal-test/reporting/event-attendance.js'),
+    '@/components/site/primitives':{Container:()=>null,Section:()=>null},
+    '@/components/portal/event-pagination':{EventPagination:()=>null},
+    '@/lib/check-in':{fieldClass:''},
+  })
+  await assert.rejects(Page({searchParams:Promise.resolve({q:' Workshop ',semester:'term',category:'general',page:'30'})}),error=>{
+    assert.ok(error.message.startsWith('REDIRECT:'),error.message)
+    const url=new URL(error.message.replace('REDIRECT:',''),'http://localhost')
+    assert.equal(url.searchParams.get('page'),'2')
+    assert.equal(url.searchParams.get('q'),'Workshop')
+    assert.equal(url.searchParams.get('semester'),'term')
+    assert.equal(url.searchParams.get('category'),'general')
+    return true
+  })
+  assert.equal(calls.length,2)
+  assert.equal(calls[0].p_page,30)
+  assert.equal(calls[0].p_query,'Workshop')
+  assert.equal(calls[1].p_page,1)
+})
 function route({ user=true,admin=true,rows=[],failed=false,term=true }={}) {
   const client = {
     auth:{getUser:async()=>({data:{user:user?{id:'admin'}:null},error:null})},
