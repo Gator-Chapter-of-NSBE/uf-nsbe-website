@@ -12,6 +12,8 @@ import type {
   Semester,
 } from '@/lib/portal/types'
 import { signOut } from './actions'
+import { resolvePortalView, previewHref } from '@/lib/portal/view'
+import { DashboardPreviewSelector, PortalViewShell } from '@/components/portal/portal-view'
 import { MembershipHistory } from '@/components/portal/membership-history'
 import { EboardAccessPanel } from '@/components/portal/eboard-access-panel'
 import { AdminAccountsPanel } from '@/components/portal/admin-accounts-panel'
@@ -27,7 +29,7 @@ function eventDate(value: string) {
 export default async function PortalPage({
   searchParams,
 }: {
-  searchParams: Promise<{ semester?: string; profile?: string; role_search?: string; role_page?: string }>
+  searchParams: Promise<{ semester?: string; profile?: string; role_search?: string; role_page?: string; preview?: string }>
 }) {
   const { supabase, member } = await requireMember()
   if (!member.profile_completed_at) redirect('/portal/profile')
@@ -73,6 +75,7 @@ export default async function PortalPage({
     supabase.rpc('can_manage_event_check_ins'),
   ])
   if (role.error) throw new Error('Member role could not be loaded.')
+  const view=resolvePortalView(Boolean(role.data),eventAccess.data===true,query.preview)
   const today = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'America/New_York',
     year: 'numeric',
@@ -101,10 +104,12 @@ export default async function PortalPage({
   return (
     <Section className="pt-10 sm:pt-14">
       <Container>
+        {role.data&&<DashboardPreviewSelector key={view.preview??'admin'} preview={view.preview} semester={selected?.id}/>}
+        <PortalViewShell view={view}>
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
             <p className="eyebrow">
-              Member portal{role.data ? ' / Chapter administrator' : eventAccess.data ? ' / E-board' : ''}
+              Member portal{view.showAdmin ? ' / Chapter administrator' : view.showEventManagement ? ' / E-board' : ''}
             </p>
             <h1 className="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">
               Welcome, {member.full_name.split(' ')[0]}.
@@ -114,20 +119,20 @@ export default async function PortalPage({
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-5">
-            {role.data && <Link href="/portal/admin/active-members" className="text-sm font-medium underline underline-offset-4">Active members</Link>}
-            {role.data && <Link href="/portal/admin/members" className="text-sm font-medium underline underline-offset-4">Manage members</Link>}
-            {role.data && <Link href="/portal/admin/previous-events" className="text-sm font-medium underline underline-offset-4">Manage previous events</Link>}
-            {(role.data || eventAccess.data === true) && <Link href="/portal/admin/events" className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
-            {role.data && <a href="#eboard-access" className="text-sm font-medium underline underline-offset-4">E-board access</a>}
-            {role.data && <a href="#admin-accounts" className="text-sm font-medium underline underline-offset-4">Admin accounts</a>}
+            {view.showAdmin && <Link href="/portal/admin/active-members" className="text-sm font-medium underline underline-offset-4">Active members</Link>}
+            {view.showAdmin && <Link href="/portal/admin/members" className="text-sm font-medium underline underline-offset-4">Manage members</Link>}
+            {view.showAdmin && <Link href="/portal/admin/previous-events" className="text-sm font-medium underline underline-offset-4">Manage previous events</Link>}
+            {view.showEventManagement && <Link href={previewHref('/portal/admin/events',view.preview)} className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
+            {view.showAdmin && <a href="#eboard-access" className="text-sm font-medium underline underline-offset-4">E-board access</a>}
+            {view.showAdmin && <a href="#admin-accounts" className="text-sm font-medium underline underline-offset-4">Admin accounts</a>}
             <Link
-              href="/portal/profile"
+              href={previewHref('/portal/profile',view.preview)}
               className="text-sm font-medium underline underline-offset-4"
             >
               Edit profile
             </Link>
             <form action={signOut}>
-              <button className="rounded-md border border-input px-4 py-2 text-sm hover:bg-secondary">
+              <button disabled={view.readOnly} className="rounded-md border border-input px-4 py-2 text-sm hover:bg-secondary disabled:opacity-50">
                 Sign out
               </button>
             </form>
@@ -147,6 +152,7 @@ export default async function PortalPage({
           </h2>
           {semesters.length > 0 && (
             <form className="flex items-center gap-2">
+              {view.preview&&<input type="hidden" name="preview" value={view.preview}/>}
               <label htmlFor="semester" className="sr-only">
                 Semester
               </label>
@@ -274,10 +280,10 @@ export default async function PortalPage({
         )}
         <TrailblazersAttendance events={events} attendance={attendance} semester={selected?.id} />
         <MembershipHistory semesters={semesters} events={events} attendance={attendance} adjustments={adjustments} />
-        {role.data && <EboardAccessPanel supabase={supabase} search={query.role_search} page={query.role_page} semester={selected?.id} />}
-        {role.data && <AdminAccountsPanel supabase={supabase} />}
+        {view.showAdmin && <EboardAccessPanel supabase={supabase} search={query.role_search} page={query.role_page} semester={selected?.id} />}
+        {view.showAdmin && <AdminAccountsPanel supabase={supabase} />}
         <div className="mt-12 flex flex-wrap gap-3">
-          <CtaLink href={selected ? `/portal/leaderboard?semester=${selected.id}` : '/portal/leaderboard'} variant="outline">
+          <CtaLink href={previewHref(selected ? `/portal/leaderboard?semester=${selected.id}` : '/portal/leaderboard',view.preview)} variant="outline">
             Points leaderboard
           </CtaLink>
           <CtaLink href="/events" variant="outline">
@@ -287,6 +293,7 @@ export default async function PortalPage({
             Event check-in
           </CtaLink>
         </div>
+        </PortalViewShell>
       </Container>
     </Section>
   )

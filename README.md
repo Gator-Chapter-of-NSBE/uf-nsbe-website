@@ -209,5 +209,7 @@ Event managers can also select the separate Trailblazers calendar. Only titles c
 
 Admins can use **Manage previous events** at `/portal/admin/previous-events` to review attendee counts and rosters, add/remove attendance with an audit trail, and filter by semester or type. It uses only database records and remains admin-only. See [previous-event management setup](docs/PREVIOUS_EVENTS.md) for its migration.
 
+Administrators can select a read-only Member or E-board dashboard preview using the same dashboard components and their own records. No role changes or migration are required; see [dashboard preview](docs/DASHBOARD_PREVIEW.md) for behavior and guidance when adding features.
+
 The site was originally bootstrapped with [v0](https://v0.app). The linked [v0 project](https://v0.app/chat/projects/prj_H6269MqjsMRn0VUz9nUwvIE1EVQq) remains an optional development entry point; deployment behavior depends on the configured repository/hosting integration.
 

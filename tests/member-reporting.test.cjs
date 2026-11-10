@@ -7,6 +7,27 @@ const { NextRequest } = require('next/server')
 const { membershipHistory } = require('../.portal-test/reporting/rules.js')
 const { activeMembersCsv } = require('../.portal-test/reporting/reporting.js')
 const { filterAttendees, parsePage, paginationPages } = require('../.portal-test/reporting/event-attendance.js')
+const { resolvePortalView, previewHref } = require('../.portal-test/reporting/view.js')
+
+test('only administrators can preview another role; presentation never grants permissions',()=>{
+  const member=resolvePortalView(true,true,'member')
+  assert.equal(member.role,'member'); assert.equal(member.readOnly,true)
+  assert.equal(member.showAdmin,false); assert.equal(member.showEventManagement,false)
+  const board=resolvePortalView(true,true,'eboard')
+  assert.equal(board.readOnly,true); assert.equal(board.showEventManagement,true); assert.equal(board.showAdmin,false)
+  assert.deepEqual(resolvePortalView(false,false,'eboard'),resolvePortalView(false,false))
+  assert.deepEqual(resolvePortalView(false,true,'admin'),resolvePortalView(false,true))
+  assert.deepEqual(resolvePortalView(false,true,'member'),resolvePortalView(false,true))
+  assert.equal(resolvePortalView(true,true,'admin').readOnly,false)
+  assert.equal(resolvePortalView(true,true,'invalid').role,'admin')
+  assert.equal(resolvePortalView(true,true).preview,null)
+})
+
+test('preview navigation preserves query filters and anchors without persisting a role',()=>{
+  assert.equal(previewHref('/portal/leaderboard?semester=fall#scores','member'),'/portal/leaderboard?semester=fall&preview=member#scores')
+  assert.equal(previewHref('/portal?preview=member','eboard'),'/portal?preview=eboard')
+  assert.equal(previewHref('/portal',null),'/portal')
+})
 
 test('pagination windows include boundaries/current page, ellipses and single-gap page buttons',()=>{
   assert.deepEqual(paginationPages(1,0),[])

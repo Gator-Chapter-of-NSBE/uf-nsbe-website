@@ -4,6 +4,8 @@ import { createClient } from '@/lib/supabase/server'
 import { getSupabaseConfig } from '@/lib/supabase/config'
 import { isUfEmail } from './rules'
 import type { Member } from './types'
+import { resolvePortalView } from './view'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 export async function requireMember() {
   if (!getSupabaseConfig()) redirect('/portal/login')
@@ -43,4 +45,10 @@ export async function requireEventManager() {
   const { data: admin, error: roleError } = await context.supabase.rpc('is_portal_admin')
   if (roleError) throw new Error('Member role could not be loaded.')
   return { ...context, isAdmin: admin === true }
+}
+
+export async function getPortalView(supabase: SupabaseClient, requested?: string) {
+  const [admin, events] = await Promise.all([supabase.rpc('is_portal_admin'),supabase.rpc('can_manage_event_check_ins')])
+  if (admin.error || events.error) throw new Error('Member role could not be loaded.')
+  return resolvePortalView(admin.data===true,events.data===true,requested)
 }
