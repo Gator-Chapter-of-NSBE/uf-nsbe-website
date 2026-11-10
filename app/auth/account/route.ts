@@ -6,7 +6,7 @@ import { isUfEmail } from '@/lib/portal/rules'
 export const dynamic = 'force-dynamic'
 
 function respond(
-  account: { name: string; email: string } | null,
+  account: { name: string; email: string; isAdmin: boolean } | null,
   status = 200,
 ) {
   return NextResponse.json(
@@ -41,7 +41,8 @@ export async function GET() {
       .eq('auth_user_id', user.id)
       .maybeSingle()
     if (profileError) return respond(null, 503)
-    return respond({ name: member?.full_name || 'Member', email: user.email! })
+    const { data: admin, error: roleError } = await supabase.rpc('is_portal_admin')
+    return respond({ name: member?.full_name || 'Member', email: user.email!, isAdmin: !roleError && admin === true })
   } catch {
     return respond(null, 503)
   }

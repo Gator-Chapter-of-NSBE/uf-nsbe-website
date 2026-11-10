@@ -1,7 +1,7 @@
 # Dashboard role preview
 
-Administrators have a **Preview dashboard as** selector above their dashboard.
-Choose Admin, E-board or Member and select **View dashboard**. Only real admin
+Administrators have **Preview as Member** and **Preview as E-board** links in the
+avatar account menu. Choosing one opens that dashboard preview immediately. Only real admin
 accounts can activate a preview; adding a preview query parameter as a member or
 E-board user does not change the displayed role or grant permissions.
 
@@ -21,8 +21,9 @@ forms, sensitive IDs, exports, role controls and the administrator directory.
 
 The preview is temporary: it uses `?preview=member` or `?preview=eboard`, not a
 cookie, database role or persistent preference. A fresh `/portal` visit or **Exit
-preview** returns to the actual dashboard. The selector itself is a preview control
-and remains visible to the real admin in either preview.
+preview** returns to the actual dashboard. The avatar menu remains available to the real admin in either preview. The banner
+shows **Exit preview** on the dashboard; other preview pages also show **Back to
+preview dashboard**.
 
 ## Future features
 

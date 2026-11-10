@@ -13,7 +13,7 @@ import type {
 } from '@/lib/portal/types'
 import { signOut } from './actions'
 import { resolvePortalView, previewHref } from '@/lib/portal/view'
-import { DashboardPreviewSelector, PortalViewShell } from '@/components/portal/portal-view'
+import { PortalViewShell } from '@/components/portal/portal-view'
 import { MembershipHistory } from '@/components/portal/membership-history'
 import { EboardAccessPanel } from '@/components/portal/eboard-access-panel'
 import { AdminAccountsPanel } from '@/components/portal/admin-accounts-panel'
@@ -104,7 +104,6 @@ export default async function PortalPage({
   return (
     <Section className="pt-10 sm:pt-14">
       <Container>
-        {role.data&&<DashboardPreviewSelector key={view.preview??'admin'} preview={view.preview} semester={selected?.id}/>}
         <PortalViewShell view={view}>
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>

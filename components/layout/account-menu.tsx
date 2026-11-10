@@ -6,12 +6,13 @@ import { usePathname } from 'next/navigation'
 import { ChevronDown, LogIn, UserRound } from 'lucide-react'
 import { signOut } from '@/app/portal/actions'
 
-type Account = { name: string; email: string }
+type Account = { name: string; email: string; isAdmin: boolean }
 
 export function AccountMenu() {
   const pathname = usePathname()
   const [account, setAccount] = useState<Account | null | undefined>(undefined)
   const [open, setOpen] = useState(false)
+  const [semester, setSemester] = useState<string | null>(null)
   const container = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -110,7 +111,10 @@ export function AccountMenu() {
     >
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          setSemester(new URLSearchParams(window.location.search).get('semester'))
+          setOpen(!open)
+        }}
         aria-expanded={open}
         aria-controls="header-account-panel"
         aria-label={`Account: ${account.name}`}
@@ -151,6 +155,11 @@ export function AccountMenu() {
               Edit profile
             </Link>
           </nav>
+          {account.isAdmin && <nav aria-label="Dashboard previews" className="mt-1 border-t border-border pt-2">
+            <p className="px-3 py-1 text-xs font-medium text-muted-foreground">Preview dashboard</p>
+            <Link href={`/portal?${new URLSearchParams({ preview: 'member', ...(semester ? { semester } : {}) })}`} onClick={close} className="block rounded-md px-3 py-2 text-sm hover:bg-secondary focus-visible:bg-secondary">Preview as Member</Link>
+            <Link href={`/portal?${new URLSearchParams({ preview: 'eboard', ...(semester ? { semester } : {}) })}`} onClick={close} className="block rounded-md px-3 py-2 text-sm hover:bg-secondary focus-visible:bg-secondary">Preview as E-board</Link>
+          </nav>}
           <form
             action={handleSignOut}
             className="mt-1 border-t border-border pt-1"
