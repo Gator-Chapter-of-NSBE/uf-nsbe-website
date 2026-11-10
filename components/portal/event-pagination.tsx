@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { paginationPages } from '@/lib/portal/event-attendance'
 
 export function EventPagination({ page, total, filters }: {
-  page: number; total: number; filters: { q: string; semester: string; category: string }
+  page: number; total: number; filters: { q: string; semester: string; category: string; preview?: string }
 }) {
   const pages = Math.max(1,Math.ceil(total/25))
   const href = (n: number) => `/portal/admin/previous-events?${new URLSearchParams({...filters,page:String(n)})}`

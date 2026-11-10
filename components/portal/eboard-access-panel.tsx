@@ -33,7 +33,7 @@ export async function EboardAccessPanel({ supabase, search, page: rawPage, semes
   const href = (p: number) => `/portal?${new URLSearchParams({ role_search: query, role_page: String(p), ...(semester ? { semester } : {}) })}#eboard-access`
   return <section id="eboard-access" className="mt-12 scroll-mt-24 border-t pt-10" aria-labelledby="eboard-access-heading">
     <p className="eyebrow">Administrator controls</p><h2 id="eboard-access-heading" className="mt-3 font-serif text-2xl">E-board access</h2>
-    <p className="mt-3 max-w-3xl text-sm text-muted-foreground">E-board members can create, open, close, and reopen event check-ins and change event passwords. They cannot manage other members’ records, adjust points, export active members, or assign roles. Administrators already have all event permissions.</p>
+    <p className="mt-3 max-w-3xl text-sm text-muted-foreground">E-board members can create, open, close, and reopen event check-ins and change event passwords. They can review member participation and previous-event rosters. They cannot change other members’ records, adjust points, export active members, or assign roles. Administrators already have all event permissions.</p>
     {unavailable ? <p role="alert" className="mt-5 rounded-xl border p-5">E-board access tools are unavailable. Apply the E-board access migration before using this section.</p> : <>
       <form action="/portal#eboard-access" className="mt-6 flex flex-wrap gap-3">
         {semester && <input type="hidden" name="semester" value={semester} />}

@@ -24,7 +24,8 @@ export function PortalViewShell({ view, children }: { view: PortalView; children
   const router = useRouter()
   const [blocked,setBlocked] = useState(false)
   const block = (event: React.SyntheticEvent) => { event.preventDefault(); event.stopPropagation(); setBlocked(true) }
-  const allowed = (path: string) => ['/portal','/portal/profile','/portal/leaderboard'].includes(path) || (view.role==='eboard'&&path==='/portal/admin/events')
+  const allowed = (path: string) => ['/portal','/portal/profile','/portal/leaderboard'].includes(path) || (view.role==='eboard' && (
+    path==='/portal/admin/events' || /^\/portal\/admin\/(members|previous-events)(\/[0-9a-f-]{36})?$/.test(path)))
   return <ViewContext.Provider value={view}>
     {view.preview&&<aside className="mb-6 rounded-xl border border-nsbe-green/30 bg-nsbe-green/5 p-5" aria-label="Dashboard preview">
       <p className="font-medium">Previewing {view.preview==='member'?'Member':'E-board'} dashboard — read-only</p>

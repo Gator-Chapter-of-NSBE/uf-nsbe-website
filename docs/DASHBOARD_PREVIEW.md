@@ -15,8 +15,9 @@ changes, the profile page, leaderboard and E-board event tools preserve preview
 through their URLs. Profile and event forms are disabled, sign-out within the
 preview content is disabled, and the preview shell intercepts mutation submissions
 and action buttons. GET filters and the calendar-source links remain navigable.
-Member preview does not expose E-board event tools. Both previews omit admin member
-management, exports, role controls and the administrator directory.
+Member preview does not expose staff tools. E-board preview includes read-only
+member participation and previous-event directories, while omitting correction
+forms, sensitive IDs, exports, role controls and the administrator directory.
 
 The preview is temporary: it uses `?preview=member` or `?preview=eboard`, not a
 cookie, database role or persistent preference. A fresh `/portal` visit or **Exit

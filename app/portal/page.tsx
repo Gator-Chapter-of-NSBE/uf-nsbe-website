@@ -120,8 +120,8 @@ export default async function PortalPage({
           </div>
           <div className="flex flex-wrap items-center gap-5">
             {view.showAdmin && <Link href="/portal/admin/active-members" className="text-sm font-medium underline underline-offset-4">Active members</Link>}
-            {view.showAdmin && <Link href="/portal/admin/members" className="text-sm font-medium underline underline-offset-4">Manage members</Link>}
-            {view.showAdmin && <Link href="/portal/admin/previous-events" className="text-sm font-medium underline underline-offset-4">Manage previous events</Link>}
+            {view.showParticipation && <Link href={previewHref('/portal/admin/members',view.preview)} className="text-sm font-medium underline underline-offset-4">{view.showAdmin ? 'Manage members' : 'View members'}</Link>}
+            {view.showParticipation && <Link href={previewHref('/portal/admin/previous-events',view.preview)} className="text-sm font-medium underline underline-offset-4">{view.showAdmin ? 'Manage previous events' : 'View previous events'}</Link>}
             {view.showEventManagement && <Link href={previewHref('/portal/admin/events',view.preview)} className="text-sm font-medium underline underline-offset-4">Manage event check-in</Link>}
             {view.showAdmin && <a href="#eboard-access" className="text-sm font-medium underline underline-offset-4">E-board access</a>}
             {view.showAdmin && <a href="#admin-accounts" className="text-sm font-medium underline underline-offset-4">Admin accounts</a>}

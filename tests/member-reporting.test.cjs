@@ -13,8 +13,10 @@ test('only administrators can preview another role; presentation never grants pe
   const member=resolvePortalView(true,true,'member')
   assert.equal(member.role,'member'); assert.equal(member.readOnly,true)
   assert.equal(member.showAdmin,false); assert.equal(member.showEventManagement,false)
+  assert.equal(member.showParticipation,false)
   const board=resolvePortalView(true,true,'eboard')
   assert.equal(board.readOnly,true); assert.equal(board.showEventManagement,true); assert.equal(board.showAdmin,false)
+  assert.equal(board.showParticipation,true)
   assert.deepEqual(resolvePortalView(false,false,'eboard'),resolvePortalView(false,false))
   assert.deepEqual(resolvePortalView(false,true,'admin'),resolvePortalView(false,true))
   assert.deepEqual(resolvePortalView(false,true,'member'),resolvePortalView(false,true))
@@ -105,7 +107,9 @@ test('stale event pages redirect to a valid page while preserving search and fil
   }
   const {default:Page}=loadTs('app/portal/admin/previous-events/page.tsx',{
     'next/navigation':{redirect(url){throw new Error(`REDIRECT:${url}`)}},
-    '@/lib/portal/session':{requireAdmin:async()=>({supabase:client})},
+    '@/lib/portal/session':{requireParticipationViewer:async()=>({supabase:client,view:resolvePortalView(true,true)})},
+    '@/components/portal/portal-view':{PortalViewShell:()=>null},
+    '@/lib/portal/view':{previewHref},
     '@/lib/portal/read-all':{readAll},
     '@/lib/portal/event-attendance':require('../.portal-test/reporting/event-attendance.js'),
     '@/components/site/primitives':{Container:()=>null,Section:()=>null},

@@ -29,7 +29,8 @@ provide controls to change administrator roles.
 | View configured event check-ins | No | Yes | Yes |
 | Create, open, close, reopen check-ins or rotate passwords | No | Yes | Yes |
 | Change an existing event's category, semester, zone or start time through check-in setup | No | No | No |
-| Search other members and correct attendance or points | No | No | Yes |
+| Search members, view participation and previous-event rosters | No | Yes (read-only) | Yes |
+| Correct attendance or points | No | No | Yes |
 | View/export active-member lists | No | No | Yes |
 | Assign/revoke E-board access and view its audit history | No | No | Yes |
 
@@ -40,7 +41,7 @@ expiry and, optionally, the password. Both admins and E-board members use
 `/portal/admin/events`; the route's name does not confer administrator privileges.
 
 E-board users see **Manage event check-in** and an E-board label on their dashboard.
-They do not see member-management, export or role-assignment controls. Profile
+They also see read-only member and previous-event directories, without correction, export or role-assignment controls. Profile
 onboarding is still required to view the normal member dashboard.
 
 ## Enforcement and audit
@@ -67,7 +68,7 @@ same existing role state make no change and add no duplicate history.
 ## Verify
 
 After deployment, grant access to a test UF member and confirm their event controls
-work. Confirm member management and active-member export remain inaccessible.
+work. Confirm member participation is read-only and active-member export remains inaccessible.
 Revoke the role while their session remains signed in, then try another event
 action: it should be denied. Admin access should continue to work throughout.
 
@@ -81,3 +82,8 @@ psql -X -v ON_ERROR_STOP=1 -d eboard_security_test -f tests/eboard-access.sql
 Never run fixture scripts in production. Tests cover role grants/revocations,
 idempotency, audit authors, stale revocations, event operations, metadata protection,
 non-admin data restrictions, self-promotion prevention and anonymous access.
+
+The participation-read migration adds narrow, staff-only database functions for
+member search, safe profiles, attendance, adjustments and rosters. UFIDs and NSBE
+IDs are excluded; underlying table RLS is unchanged. See
+[read-only participation setup](EBOARD_PARTICIPATION.md).

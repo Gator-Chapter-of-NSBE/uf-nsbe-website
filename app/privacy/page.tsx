@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <Container className="max-w-3xl">
         <p className="eyebrow">UF NSBE</p>
         <h1 className="mt-3 font-serif text-4xl tracking-tight sm:text-5xl">Privacy policy</h1>
-        <p className="mt-4 text-sm text-muted-foreground">Effective November 1, 2026 · Last updated November 2, 2026</p>
+        <p className="mt-4 text-sm text-muted-foreground">Effective November 1, 2026 · Last updated November 9, 2026</p>
         <p className="mt-6 leading-relaxed text-muted-foreground">
           The University of Florida Gator Chapter of the National Society of Black Engineers
           (UF NSBE) operates ufnsbe.org. This policy explains how we handle information
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
 
           <PolicySection title="Who can see chapter records">
             <p>Members can view their own profile, attendance, points, and membership history. Authorized chapter administrators can access member records, correct attendance, record point adjustments, and export active-member lists containing names, UF emails, attendance counts, and points.</p>
-            <p className="mt-3">Authorized E-board members can manage event check-in settings and passwords. This role does not give access to other members’ profiles, attendance histories, point adjustments, active-member exports, or role-assignment history.</p>
+            <p className="mt-3">Authorized E-board members can manage event check-in settings and passwords. They can also search members and view names, UF emails, majors, school years, attendance, points, membership status, and previous-event rosters for chapter operations. This participation access is read-only and excludes UFIDs, NSBE IDs, administrator correction history, active-member exports, and role-assignment history.</p>
             <p className="mt-3">The points leaderboard is visible to signed-in UF portal users. It displays participating members’ names, points, and ranks, including members whose attendance was recorded before they first logged into the portal. It does not display emails, UFIDs, NSBE IDs, or individual attendance histories.</p>
             <p className="mt-3">We do not sell member personal information. We may also disclose information when required by applicable law or when needed to address misuse, protect users, or secure chapter services.</p>
           </PolicySection>

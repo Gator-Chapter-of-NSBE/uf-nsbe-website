@@ -67,3 +67,7 @@ audit authors, idempotency, adjustment reversal, and anonymous check-in regressi
 After deployment, use a test member to add and remove one attendance and create
 a small positive adjustment followed by its opposite. Confirm both the admin view
 and that member's dashboard show the expected points and membership progress.
+
+E-board users now have a read-only version of member search and participation
+pages, excluding NSBE IDs/UFIDs, audit history and correction forms. See
+[E-board participation setup](EBOARD_PARTICIPATION.md) for the migration.

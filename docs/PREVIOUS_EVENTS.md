@@ -52,17 +52,17 @@ URL remains accessible to admins, including at zero attendance, so the admin can
 search and re-add a member. The event and correction history are never deleted by
 these tools. Directory entries return when attendance is restored.
 
-Both new pages require admin access. The event-directory database function checks
-the administrator role independently, and existing RLS protects roster and audit
-reads. E-board event check-in management is unchanged; it does not grant access to
-these previous-event reports or member corrections.
+With the E-board participation migration, admins and E-board members can read the
+directory and rosters. Only admins see or use correction and audit tools. E-board
+roster reads use a restricted database function; existing table RLS is unchanged.
+See [E-board participation setup](EBOARD_PARTICIPATION.md).
 
 ## Verify
 
 Check one imported event and one Trailblazers meeting. Compare roster counts with
 the event directory. Add and remove a test member with reasons, then compare the
 member dashboard and event correction history. Test last-attendee removal/restoration
-on a test event and confirm an E-board account cannot access either admin page.
+on a test event and confirm an E-board account can read both pages but cannot edit attendance.
 
 Local SQL tests use a disposable `previous_events_test` database cloned from the
 Trailblazers fixture after applying this migration:
@@ -73,8 +73,9 @@ npm run test:reporting
 ```
 
 Never run fixture scripts in production. Tests cover counts, filters, pagination,
-future/empty exclusion, final-attendee restoration, retained provenance, admin-only
-access and roster searching.
+future/empty exclusion, final-attendee restoration, retained provenance, the original admin-only
+access and roster searching. The later E-board participation fixture verifies the
+expanded read-only access separately.
 
 `tests/previous-event-search.sql` verifies the updated search function in disposable
 `previous_event_search_test`, cloned from the previous-events fixture with the
